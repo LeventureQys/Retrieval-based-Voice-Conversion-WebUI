@@ -1,0 +1,29 @@
+# RVC-LoRA Requirements
+
+# Core dependencies
+torch>=1.13.0
+numpy>=1.23.0
+scipy>=1.9.0
+
+# Audio processing
+librosa==0.9.1
+soundfile>=0.12.1
+resampy>=0.4.2
+audioread
+
+# Deep learning
+fairseq==0.12.2
+tensorboard
+tqdm>=4.63.1
+
+# Utilities
+pyyaml>=6.0
+json5
+matplotlib>=3.7.0
+
+# Testing
+pytest>=7.0.0
+pytest-cov
+
+# Optional: for web interface
+gradio==3.34.0

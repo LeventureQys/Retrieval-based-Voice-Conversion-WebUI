@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(conda run:*)",
+      "Bash(\"C:\\\\Users\\\\a5935\\\\.conda\\\\envs\\\\rvc\\\\python.exe\" -u tests/test_inference.py)",
+      "Bash(\"C:\\\\Users\\\\a5935\\\\.conda\\\\envs\\\\rvc\\\\python.exe\" -u tests/test_lora_core.py)",
+      "Bash(\"C:\\\\Users\\\\a5935\\\\.conda\\\\envs\\\\rvc\\\\python.exe\" -c:*)",
+      "Bash(pip show:*)",
+      "Bash(where:*)",
+      "Bash(pip install:*)",
+      "Bash(dir:*)"
+    ]
+  }
+}

@@ -1,2 +1,4 @@
-runtime\python.exe gui_v1.py --pycmd runtime\python.exe --dml
+@echo off
+call conda activate rvc
+python gui_v1.py --dml
 pause

@@ -96,6 +96,17 @@ class RVC:
             self.resample_kernel = {}
 
             if last_rvc is None:
+                # 为 PyTorch 2.6+ 添加 fairseq 类到安全全局列表
+                try:
+                    import torch.serialization as torch_serialization
+                    import fairseq.data.dictionary
+                    import fairseq.models.hubert.hubert
+                    torch_serialization.add_safe_globals([
+                        fairseq.data.dictionary.Dictionary,
+                    ])
+                except:
+                    pass
+
                 models, _, _ = fairseq.checkpoint_utils.load_model_ensemble_and_task(
                     ["assets/hubert/hubert_base.pt"],
                     suffix="",
