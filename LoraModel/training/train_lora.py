@@ -151,13 +151,13 @@ class LoRATrainer:
             with autocast():
                 output = self._forward_pass(
                     phone, spec_lengths, pitch, pitchf,
-                    spec, wav_lengths, speaker_id
+                    spec, spec_lengths, speaker_id  # y_lengths should be spec_lengths, not wav_lengths
                 )
                 loss, loss_dict = self._compute_loss(output, spec, wav)
         else:
             output = self._forward_pass(
                 phone, spec_lengths, pitch, pitchf,
-                spec, wav_lengths, speaker_id
+                spec, spec_lengths, speaker_id  # y_lengths should be spec_lengths, not wav_lengths
             )
             loss, loss_dict = self._compute_loss(output, spec, wav)
 
@@ -210,20 +210,17 @@ class LoRATrainer:
         else:
             generated_audio = output
 
-        # Compute mel spectrogram of generated audio
-        # For simplicity, we use L1 loss on the output directly
-        # In full training, you would compute mel spectrograms
+        # Fix dimension mismatch: model outputs [B, 1, T], target is [B, T]
+        if generated_audio.dim() == 3 and generated_audio.shape[1] == 1:
+            generated_audio = generated_audio.squeeze(1)  # [B, 1, T] -> [B, T]
 
-        # Simple L1 loss on waveform (if shapes match)
-        if generated_audio.shape == target_wav.shape:
-            loss = torch.nn.functional.l1_loss(generated_audio, target_wav)
-        else:
-            # Fallback: use output shape
-            min_len = min(generated_audio.shape[-1], target_wav.shape[-1])
-            loss = torch.nn.functional.l1_loss(
-                generated_audio[..., :min_len],
-                target_wav[..., :min_len]
-            )
+        # Align lengths
+        min_len = min(generated_audio.shape[-1], target_wav.shape[-1])
+        generated_audio = generated_audio[..., :min_len]
+        target_wav = target_wav[..., :min_len]
+
+        # L1 loss on waveform
+        loss = torch.nn.functional.l1_loss(generated_audio, target_wav)
 
         loss_dict = {
             'loss_total': loss.item(),
@@ -296,7 +293,7 @@ class LoRATrainer:
             path=lora_path,
             config=self.model.lora_config,
             epoch=epoch,
-            optimizer=self.optimizer,
+            optimizer_state=self.optimizer.state_dict(),
         )
         logger.info(f"Saved LoRA checkpoint: {lora_path}")
 

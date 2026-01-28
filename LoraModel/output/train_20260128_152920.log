@@ -1,0 +1,123 @@
+2026-01-28 15:29:20,548 - __main__ - INFO - Log file: ./output/train_20260128_152920.log
+2026-01-28 15:29:20,548 - __main__ - WARNING - CUDA not available, falling back to CPU
+2026-01-28 15:29:20,548 - __main__ - INFO - ============================================================
+2026-01-28 15:29:20,548 - __main__ - INFO - RVC-LoRA End-to-End Training
+2026-01-28 15:29:20,548 - __main__ - INFO - ============================================================
+2026-01-28 15:29:20,548 - __main__ - INFO - Input directory: ./download/base_voice
+2026-01-28 15:29:20,548 - __main__ - INFO - Output directory: ./output
+2026-01-28 15:29:20,548 - __main__ - INFO - Base model: ./download/pretrained_v2/f0G40k.pth
+2026-01-28 15:29:20,548 - __main__ - INFO - Sample rate: 40000
+2026-01-28 15:29:20,548 - __main__ - INFO - Version: v2
+2026-01-28 15:29:20,548 - __main__ - INFO - Device: cpu
+2026-01-28 15:29:20,548 - __main__ - INFO - LoRA rank: 8, alpha: 16
+2026-01-28 15:29:20,548 - __main__ - INFO - ============================================================
+2026-01-28 15:29:20,548 - __main__ - INFO - 
+============================================================
+2026-01-28 15:29:20,548 - __main__ - INFO - Step 1: Preprocessing audio files
+2026-01-28 15:29:20,548 - __main__ - INFO - ============================================================
+2026-01-28 15:29:20,549 - preprocessing.pipeline - INFO - ==================================================
+2026-01-28 15:29:20,549 - preprocessing.pipeline - INFO - Starting preprocessing pipeline
+2026-01-28 15:29:20,549 - preprocessing.pipeline - INFO - Input: ./download/base_voice
+2026-01-28 15:29:20,549 - preprocessing.pipeline - INFO - Output: ./output/preprocessed
+2026-01-28 15:29:20,549 - preprocessing.pipeline - INFO - Version: v2
+2026-01-28 15:29:20,549 - preprocessing.pipeline - INFO - Sample rate: 40000
+2026-01-28 15:29:20,549 - preprocessing.pipeline - INFO - ==================================================
+2026-01-28 15:29:20,549 - preprocessing.pipeline - INFO - 
+[Step 1/3] Processing audio files...
+2026-01-28 15:29:20,549 - preprocessing.pipeline - INFO - Processing audio files from ./download/base_voice
+2026-01-28 15:29:20,549 - preprocessing.pipeline - INFO - Found 6 audio files
+2026-01-28 15:29:21,737 - preprocessing.pipeline - INFO - Processed ./download/base_voice/1.wav
+2026-01-28 15:29:22,222 - preprocessing.pipeline - INFO - Processed ./download/base_voice/2.wav
+2026-01-28 15:29:22,636 - preprocessing.pipeline - INFO - Processed ./download/base_voice/3.wav
+2026-01-28 15:29:23,122 - preprocessing.pipeline - INFO - Processed ./download/base_voice/4.wav
+2026-01-28 15:29:23,554 - preprocessing.pipeline - INFO - Processed ./download/base_voice/5.wav
+2026-01-28 15:29:24,532 - preprocessing.pipeline - INFO - Processed ./download/base_voice/6.wav
+2026-01-28 15:29:24,532 - preprocessing.pipeline - INFO - Total segments: 47
+2026-01-28 15:29:24,533 - preprocessing.pipeline - INFO - 
+[Step 2/3] Extracting features...
+2026-01-28 15:29:24,533 - preprocessing.pipeline - INFO - Extracting features for 47 segments
+2026-01-28 15:29:24,790 - fairseq.tasks.text_to_speech - INFO - Please install tensorboardX: pip install tensorboardX
+2026-01-28 15:29:24,858 - preprocessing.feature_extractor - INFO - Loading HuBERT model from /Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/download/hubert_base.pt
+2026-01-28 15:29:24,995 - fairseq.tasks.hubert_pretraining - INFO - current directory is /Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel
+2026-01-28 15:29:24,995 - fairseq.tasks.hubert_pretraining - INFO - HubertPretrainingTask Config {'_name': 'hubert_pretraining', 'data': 'metadata', 'fine_tuning': False, 'labels': ['km'], 'label_dir': 'label', 'label_rate': 50.0, 'sample_rate': 16000, 'normalize': False, 'enable_padding': False, 'max_keep_size': None, 'max_sample_size': 250000, 'min_sample_size': 32000, 'single_target': False, 'random_crop': True, 'pad_audio': False}
+2026-01-28 15:29:25,002 - fairseq.models.hubert.hubert - INFO - HubertModel Config: {'_name': 'hubert', 'label_rate': 50.0, 'extractor_mode': default, 'encoder_layers': 12, 'encoder_embed_dim': 768, 'encoder_ffn_embed_dim': 3072, 'encoder_attention_heads': 12, 'activation_fn': gelu, 'layer_type': transformer, 'dropout': 0.1, 'attention_dropout': 0.1, 'activation_dropout': 0.0, 'encoder_layerdrop': 0.05, 'dropout_input': 0.1, 'dropout_features': 0.1, 'final_dim': 256, 'untie_final_proj': True, 'layer_norm_first': False, 'conv_feature_layers': '[(512,10,5)] + [(512,3,2)] * 4 + [(512,2,2)] * 2', 'conv_bias': False, 'logit_temp': 0.1, 'target_glu': False, 'feature_grad_mult': 0.1, 'mask_length': 10, 'mask_prob': 0.8, 'mask_selection': static, 'mask_other': 0.0, 'no_mask_overlap': False, 'mask_min_space': 1, 'mask_channel_length': 10, 'mask_channel_prob': 0.0, 'mask_channel_selection': static, 'mask_channel_other': 0.0, 'no_mask_channel_overlap': False, 'mask_channel_min_space': 1, 'conv_pos': 128, 'conv_pos_groups': 16, 'latent_temp': [2.0, 0.5, 0.999995], 'skip_masked': False, 'skip_nomask': False, 'checkpoint_activations': False, 'required_seq_len_multiple': 2, 'depthwise_conv_kernel_size': 31, 'attn_type': '', 'pos_enc_type': 'abs', 'fp16': False}
+2026-01-28 15:29:26,367 - preprocessing.feature_extractor - INFO - HuBERT model loaded (output_dim=768)
+2026-01-28 15:29:26,627 - preprocessing.feature_extractor - INFO - Loading RMVPE model from /Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/download/rmvpe.pt
+2026-01-28 15:29:26,977 - preprocessing.feature_extractor - INFO - RMVPE model loaded
+2026-01-28 15:29:29,153 - preprocessing.pipeline - INFO - Processed 10/47 segments
+2026-01-28 15:29:31,354 - preprocessing.pipeline - INFO - Processed 20/47 segments
+2026-01-28 15:29:33,645 - preprocessing.pipeline - INFO - Processed 30/47 segments
+2026-01-28 15:29:35,663 - preprocessing.pipeline - INFO - Processed 40/47 segments
+2026-01-28 15:29:37,156 - preprocessing.pipeline - INFO - Successfully extracted features for 47 segments
+2026-01-28 15:29:37,156 - preprocessing.pipeline - INFO - 
+[Step 3/3] Preparing training data...
+2026-01-28 15:29:37,156 - preprocessing.pipeline - INFO - Preparing training data for 47 segments
+2026-01-28 15:29:37,253 - preprocessing.pipeline - INFO - Prepared 47 training samples
+2026-01-28 15:29:37,253 - preprocessing.pipeline - INFO - Filelist saved to ./output/preprocessed/filelist.txt
+2026-01-28 15:29:37,253 - preprocessing.pipeline - INFO - 
+==================================================
+2026-01-28 15:29:37,253 - preprocessing.pipeline - INFO - Preprocessing complete!
+2026-01-28 15:29:37,253 - preprocessing.pipeline - INFO - Total samples: 47
+2026-01-28 15:29:37,253 - preprocessing.pipeline - INFO - Output directory: ./output/preprocessed
+2026-01-28 15:29:37,253 - preprocessing.pipeline - INFO - Filelist: ./output/preprocessed/filelist.txt
+2026-01-28 15:29:37,253 - preprocessing.pipeline - INFO - ==================================================
+2026-01-28 15:29:37,253 - __main__ - INFO - Preprocessing complete: 47 samples
+2026-01-28 15:29:37,253 - __main__ - INFO - 
+============================================================
+2026-01-28 15:29:37,253 - __main__ - INFO - Step 2: Loading model and injecting LoRA
+2026-01-28 15:29:37,253 - __main__ - INFO - ============================================================
+2026-01-28 15:29:37,274 - models.synthesizer_lora - INFO - Using default config for pretrained model (sr=40000, version=v2)
+2026-01-28 15:29:37,552 - models.synthesizer_lora - INFO - Injecting LoRA into Synthesizer...
+2026-01-28 15:29:37,608 - models.synthesizer_lora - INFO - LoRA injected into dec (Generator)
+2026-01-28 15:29:37,608 - models.synthesizer_lora - INFO - Frozen 36,417,922 parameters, 384,768 LoRA parameters trainable
+2026-01-28 15:29:37,614 - __main__ - INFO - Total parameters: 36,802,690
+2026-01-28 15:29:37,614 - __main__ - INFO - LoRA parameters: 384,768 (1.05%)
+2026-01-28 15:29:37,614 - __main__ - INFO - 
+============================================================
+2026-01-28 15:29:37,614 - __main__ - INFO - Step 3: Creating data loader
+2026-01-28 15:29:37,614 - __main__ - INFO - ============================================================
+2026-01-28 15:29:37,614 - training.data_loader - INFO - Auto-detected preprocessed dataset in ./output/preprocessed/training_data
+2026-01-28 15:29:37,614 - training.data_loader - INFO - PreprocessedDataset: Found 47 samples
+2026-01-28 15:29:37,614 - __main__ - INFO - Data loader created: 23 batches
+2026-01-28 15:29:37,614 - __main__ - INFO - 
+============================================================
+2026-01-28 15:29:37,614 - __main__ - INFO - Step 4: Training LoRA
+2026-01-28 15:29:37,614 - __main__ - INFO - ============================================================
+2026-01-28 15:29:37,868 - training.train_lora - INFO - Optimizer setup with 152 parameter groups
+2026-01-28 15:29:37,869 - training.train_lora - INFO - Starting training from epoch 0
+2026-01-28 15:29:37,869 - training.train_lora - INFO - Total epochs: 50
+2026-01-28 15:29:37,869 - training.train_lora - INFO - Batch size: 2
+2026-01-28 15:29:37,869 - training.train_lora - INFO - Learning rate: 0.0001
+2026-01-28 15:29:58,935 - __main__ - ERROR - Training failed: Given groups=1, weight of size [192, 1025, 1], expected input[2, 128, 32] to have 1025 channels, but got 128 channels instead
+Traceback (most recent call last):
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/scripts/train_lora_e2e.py", line 459, in main
+    result = train_lora_e2e(
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/scripts/train_lora_e2e.py", line 317, in train_lora_e2e
+    trainer.train(dataloader, resume_from=resume_from)
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/models/../training/train_lora.py", line 370, in train
+    epoch_losses = self.train_epoch(dataloader)
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/models/../training/train_lora.py", line 248, in train_epoch
+    loss_dict = self.train_step(batch)
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/models/../training/train_lora.py", line 158, in train_step
+    output = self._forward_pass(
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/models/../training/train_lora.py", line 195, in _forward_pass
+    return self.model.forward(
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/models/synthesizer_lora.py", line 165, in forward
+    return self.synthesizer.forward(
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/infer/lib/infer_pack/models.py", line 734, in forward
+    z, m_q, logs_q, y_mask = self.enc_q(y, y_lengths, g=g)
+  File "/opt/miniconda3/envs/rvc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/miniconda3/envs/rvc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/infer/lib/infer_pack/models.py", line 184, in forward
+    x = self.pre(x) * x_mask
+  File "/opt/miniconda3/envs/rvc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/miniconda3/envs/rvc/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/opt/miniconda3/envs/rvc/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 375, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/opt/miniconda3/envs/rvc/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 370, in _conv_forward
+    return F.conv1d(
+RuntimeError: Given groups=1, weight of size [192, 1025, 1], expected input[2, 128, 32] to have 1025 channels, but got 128 channels instead

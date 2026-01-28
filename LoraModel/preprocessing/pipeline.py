@@ -231,8 +231,8 @@ class PreprocessingPipeline:
                 np.save(f0_path, pitch, allow_pickle=False)
                 np.save(f0nsf_path, pitchf, allow_pickle=False)
 
-                # Extract mel spectrogram
-                spec = self.feature_extractor.extract_mel(audio_gt)
+                # Extract linear spectrogram (not mel)
+                spec = self.feature_extractor.extract_spec(audio_gt)
                 spec_path = os.path.join(self.spec_dir, f"{base_name}.spec.pt")
                 torch.save(spec.cpu(), spec_path)
 

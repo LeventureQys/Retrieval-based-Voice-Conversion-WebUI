@@ -1,0 +1,84 @@
+2026-01-28 15:35:59,553 - __main__ - INFO - Log file: ./output/train_20260128_153559.log
+2026-01-28 15:35:59,554 - __main__ - WARNING - CUDA not available, falling back to CPU
+2026-01-28 15:35:59,554 - __main__ - INFO - ============================================================
+2026-01-28 15:35:59,554 - __main__ - INFO - RVC-LoRA End-to-End Training
+2026-01-28 15:35:59,554 - __main__ - INFO - ============================================================
+2026-01-28 15:35:59,554 - __main__ - INFO - Input directory: ./download/base_voice
+2026-01-28 15:35:59,554 - __main__ - INFO - Output directory: ./output
+2026-01-28 15:35:59,554 - __main__ - INFO - Base model: ./download/pretrained_v2/f0G40k.pth
+2026-01-28 15:35:59,554 - __main__ - INFO - Sample rate: 40000
+2026-01-28 15:35:59,554 - __main__ - INFO - Version: v2
+2026-01-28 15:35:59,554 - __main__ - INFO - Device: cpu
+2026-01-28 15:35:59,554 - __main__ - INFO - LoRA rank: 8, alpha: 16
+2026-01-28 15:35:59,554 - __main__ - INFO - ============================================================
+2026-01-28 15:35:59,554 - __main__ - INFO - Skipping preprocessing, found 47 existing samples
+2026-01-28 15:35:59,554 - __main__ - INFO - 
+============================================================
+2026-01-28 15:35:59,554 - __main__ - INFO - Step 2: Loading model and injecting LoRA
+2026-01-28 15:35:59,554 - __main__ - INFO - ============================================================
+2026-01-28 15:35:59,604 - models.synthesizer_lora - INFO - Using default config for pretrained model (sr=40000, version=v2)
+2026-01-28 15:35:59,891 - models.synthesizer_lora - INFO - Injecting LoRA into Synthesizer...
+2026-01-28 15:35:59,949 - models.synthesizer_lora - INFO - LoRA injected into dec (Generator)
+2026-01-28 15:35:59,950 - models.synthesizer_lora - INFO - Frozen 36,417,922 parameters, 384,768 LoRA parameters trainable
+2026-01-28 15:35:59,956 - __main__ - INFO - Total parameters: 36,802,690
+2026-01-28 15:35:59,956 - __main__ - INFO - LoRA parameters: 384,768 (1.05%)
+2026-01-28 15:35:59,956 - __main__ - INFO - 
+============================================================
+2026-01-28 15:35:59,956 - __main__ - INFO - Step 3: Creating data loader
+2026-01-28 15:35:59,956 - __main__ - INFO - ============================================================
+2026-01-28 15:35:59,956 - training.data_loader - INFO - Auto-detected preprocessed dataset in ./output/preprocessed/training_data
+2026-01-28 15:35:59,956 - training.data_loader - INFO - PreprocessedDataset: Found 47 samples
+2026-01-28 15:35:59,956 - __main__ - INFO - Data loader created: 23 batches
+2026-01-28 15:35:59,956 - __main__ - INFO - 
+============================================================
+2026-01-28 15:35:59,956 - __main__ - INFO - Step 4: Training LoRA
+2026-01-28 15:35:59,956 - __main__ - INFO - ============================================================
+2026-01-28 15:36:00,309 - training.train_lora - INFO - Optimizer setup with 152 parameter groups
+2026-01-28 15:36:00,310 - training.train_lora - INFO - Starting training from epoch 0
+2026-01-28 15:36:00,310 - training.train_lora - INFO - Total epochs: 50
+2026-01-28 15:36:00,310 - training.train_lora - INFO - Batch size: 2
+2026-01-28 15:36:00,310 - training.train_lora - INFO - Learning rate: 0.0001
+2026-01-28 15:36:02,592 - training.train_lora - INFO - Epoch 0 [0/23] Step 0 LR: 0.000100 loss_total: 0.1924 loss_reconstruction: 0.1924 
+2026-01-28 15:36:15,361 - training.train_lora - INFO - Epoch 0 [10/23] Step 10 LR: 0.000100 loss_total: 0.2053 loss_reconstruction: 0.2053 
+2026-01-28 15:36:27,874 - training.train_lora - INFO - Epoch 0 [20/23] Step 20 LR: 0.000100 loss_total: 0.0829 loss_reconstruction: 0.0829 
+2026-01-28 15:36:50,369 - training.train_lora - INFO - Epoch 0 completed in 50.06s - Loss: 0.1128
+2026-01-28 15:37:01,579 - training.train_lora - INFO - Epoch 1 [7/23] Step 30 LR: 0.000100 loss_total: 0.0711 loss_reconstruction: 0.0711 
+2026-01-28 15:37:14,116 - training.train_lora - INFO - Epoch 1 [17/23] Step 40 LR: 0.000100 loss_total: 0.2086 loss_reconstruction: 0.2086 
+2026-01-28 15:37:40,384 - training.train_lora - INFO - Epoch 1 completed in 50.01s - Loss: 0.1192
+2026-01-28 15:37:48,044 - training.train_lora - INFO - Epoch 2 [4/23] Step 50 LR: 0.000100 loss_total: 0.0782 loss_reconstruction: 0.0782 
+2026-01-28 15:38:00,510 - training.train_lora - INFO - Epoch 2 [14/23] Step 60 LR: 0.000100 loss_total: 0.1434 loss_reconstruction: 0.1434 
+2026-01-28 15:38:30,536 - training.train_lora - INFO - Epoch 2 completed in 50.15s - Loss: 0.1055
+2026-01-28 15:38:34,490 - training.train_lora - INFO - Epoch 3 [1/23] Step 70 LR: 0.000100 loss_total: 0.0911 loss_reconstruction: 0.0911 
+2026-01-28 15:38:47,159 - training.train_lora - INFO - Epoch 3 [11/23] Step 80 LR: 0.000100 loss_total: 0.1793 loss_reconstruction: 0.1793 
+2026-01-28 15:38:59,704 - training.train_lora - INFO - Epoch 3 [21/23] Step 90 LR: 0.000100 loss_total: 0.0971 loss_reconstruction: 0.0971 
+2026-01-28 15:39:20,994 - training.train_lora - INFO - Epoch 3 completed in 50.46s - Loss: 0.1165
+2026-01-28 15:39:34,325 - training.train_lora - INFO - Epoch 4 [8/23] Step 100 LR: 0.000100 loss_total: 0.1114 loss_reconstruction: 0.1114 
+2026-01-28 15:39:46,876 - training.train_lora - INFO - Epoch 4 [18/23] Step 110 LR: 0.000100 loss_total: 0.0967 loss_reconstruction: 0.0967 
+2026-01-28 15:40:11,929 - training.train_lora - INFO - Epoch 4 completed in 50.94s - Loss: 0.1075
+2026-01-28 15:40:21,109 - training.train_lora - INFO - Epoch 5 [5/23] Step 120 LR: 0.000100 loss_total: 0.0862 loss_reconstruction: 0.0862 
+2026-01-28 15:40:33,466 - training.train_lora - INFO - Epoch 5 [15/23] Step 130 LR: 0.000100 loss_total: 0.1194 loss_reconstruction: 0.1194 
+2026-01-28 15:41:02,075 - training.train_lora - INFO - Epoch 5 completed in 50.15s - Loss: 0.1081
+2026-01-28 15:41:07,263 - training.train_lora - INFO - Epoch 6 [2/23] Step 140 LR: 0.000099 loss_total: 0.1166 loss_reconstruction: 0.1166 
+2026-01-28 15:41:19,841 - training.train_lora - INFO - Epoch 6 [12/23] Step 150 LR: 0.000099 loss_total: 0.1163 loss_reconstruction: 0.1163 
+2026-01-28 15:41:32,248 - training.train_lora - INFO - Epoch 6 [22/23] Step 160 LR: 0.000099 loss_total: 0.1062 loss_reconstruction: 0.1062 
+2026-01-28 15:41:52,254 - training.train_lora - INFO - Epoch 6 completed in 50.18s - Loss: 0.1076
+2026-01-28 15:42:06,207 - training.train_lora - INFO - Epoch 7 [9/23] Step 170 LR: 0.000099 loss_total: 0.0848 loss_reconstruction: 0.0848 
+2026-01-28 15:42:18,820 - training.train_lora - INFO - Epoch 7 [19/23] Step 180 LR: 0.000099 loss_total: 0.0983 loss_reconstruction: 0.0983 
+2026-01-28 15:42:42,606 - training.train_lora - INFO - Epoch 7 completed in 50.35s - Loss: 0.1057
+2026-01-28 15:42:52,829 - training.train_lora - INFO - Epoch 8 [6/23] Step 190 LR: 0.000099 loss_total: 0.1594 loss_reconstruction: 0.1594 
+2026-01-28 15:43:05,321 - training.train_lora - INFO - Epoch 8 [16/23] Step 200 LR: 0.000099 loss_total: 0.1235 loss_reconstruction: 0.1235 
+2026-01-28 15:43:32,802 - training.train_lora - INFO - Epoch 8 completed in 50.20s - Loss: 0.1144
+2026-01-28 15:43:39,233 - training.train_lora - INFO - Epoch 9 [3/23] Step 210 LR: 0.000099 loss_total: 0.0660 loss_reconstruction: 0.0660 
+2026-01-28 15:43:51,735 - training.train_lora - INFO - Epoch 9 [13/23] Step 220 LR: 0.000099 loss_total: 0.0822 loss_reconstruction: 0.0822 
+2026-01-28 15:44:22,982 - training.train_lora - INFO - Epoch 9 completed in 50.18s - Loss: 0.0964
+2026-01-28 15:44:22,982 - __main__ - ERROR - Training failed: save_lora_checkpoint() got an unexpected keyword argument 'optimizer'
+Traceback (most recent call last):
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/scripts/train_lora_e2e.py", line 459, in main
+    result = train_lora_e2e(
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/scripts/train_lora_e2e.py", line 317, in train_lora_e2e
+    trainer.train(dataloader, resume_from=resume_from)
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/models/../training/train_lora.py", line 387, in train
+    self.save_checkpoint(epoch, is_best)
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/models/../training/train_lora.py", line 294, in save_checkpoint
+    save_lora_checkpoint(
+TypeError: save_lora_checkpoint() got an unexpected keyword argument 'optimizer'

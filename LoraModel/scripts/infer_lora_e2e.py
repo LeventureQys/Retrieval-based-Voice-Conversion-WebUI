@@ -160,8 +160,14 @@ class LoRAVoiceConverter:
         lora_config = None
         if lora_path and os.path.exists(lora_path):
             # Try to load config from checkpoint
-            checkpoint = torch.load(lora_path, map_location="cpu")
-            if 'config' in checkpoint:
+            checkpoint = torch.load(lora_path, map_location="cpu", weights_only=False)
+            if 'lora_config' in checkpoint:
+                cfg = checkpoint['lora_config']
+                if isinstance(cfg, dict):
+                    lora_config = LoRAConfig(**cfg)
+                else:
+                    lora_config = cfg
+            elif 'config' in checkpoint:
                 cfg = checkpoint['config']
                 if isinstance(cfg, dict):
                     lora_config = LoRAConfig(**cfg)
@@ -183,7 +189,14 @@ class LoRAVoiceConverter:
         if lora_path and os.path.exists(lora_path):
             logger.info(f"Loading LoRA weights from {lora_path}")
             from lora import load_lora_weights
-            load_lora_weights(self.model.synthesizer, lora_path)
+            # Load checkpoint file first
+            lora_checkpoint = torch.load(lora_path, map_location=self.device, weights_only=False)
+            # Extract lora_weights from checkpoint
+            if isinstance(lora_checkpoint, dict) and 'lora_weights' in lora_checkpoint:
+                lora_weights = lora_checkpoint['lora_weights']
+            else:
+                lora_weights = lora_checkpoint
+            load_lora_weights(self.model.synthesizer, lora_weights)
 
         # Get synthesizer
         self.synthesizer = self.model.synthesizer
@@ -214,8 +227,8 @@ class LoRAVoiceConverter:
     @torch.no_grad()
     def extract_hubert_features(self, audio_16k: np.ndarray) -> torch.Tensor:
         """Extract HuBERT features from 16kHz audio."""
-        # Convert to tensor
-        feats = torch.from_numpy(audio_16k).float()
+        # Convert to tensor (ensure contiguous array)
+        feats = torch.from_numpy(audio_16k.copy()).float()
 
         # Apply layer norm if required
         if self.hubert_cfg.task.normalize:
@@ -263,8 +276,8 @@ class LoRAVoiceConverter:
         Returns:
             Tuple of (pitch, pitchf) tensors
         """
-        # Extract F0 using RMVPE
-        f0 = self.rmvpe.infer_from_audio(audio_16k, thred=threshold)
+        # Extract F0 using RMVPE (ensure contiguous array)
+        f0 = self.rmvpe.infer_from_audio(audio_16k.copy(), thred=threshold)
 
         # Apply pitch shift
         f0 *= pow(2, f0_up_key / 12)

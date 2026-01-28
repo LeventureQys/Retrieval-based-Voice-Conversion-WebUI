@@ -214,11 +214,17 @@ def load_lora_weights(model: nn.Module, lora_state_dict: Dict[str, torch.Tensor]
         Model with loaded LoRA weights
     """
     model_state_dict = model.state_dict()
+    loaded_count = 0
     for name, param in lora_state_dict.items():
         if name in model_state_dict:
-            model_state_dict[name].copy_(param)
+            model_state_dict[name] = param
+            loaded_count += 1
         else:
             print(f"Warning: LoRA parameter {name} not found in model")
+
+    # Actually load the updated state dict back into the model
+    model.load_state_dict(model_state_dict, strict=False)
+    print(f"Loaded {loaded_count} LoRA parameters into model")
 
     return model
 

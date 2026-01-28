@@ -287,13 +287,51 @@ def load_synthesizer_with_lora(
         )
 
     # Load checkpoint
-    checkpoint = torch.load(checkpoint_path, map_location=device)
+    checkpoint = torch.load(checkpoint_path, map_location=device, weights_only=False)
 
-    # Extract config
+    # Extract config or use default for pretrained models
     if "config" in checkpoint:
         config = checkpoint["config"]
     else:
-        raise ValueError("Checkpoint does not contain model config")
+        # Default configs for pretrained_v2 models (which don't have config key)
+        # Determine sample rate from filename
+        filename = os.path.basename(checkpoint_path).lower()
+        if "48k" in filename:
+            sr = 48000
+            if version == "v1":
+                config = [
+                    1025, 32, 192, 192, 768, 2, 6, 3, 0, "1",
+                    [3, 7, 11], [[1, 3, 5], [1, 3, 5], [1, 3, 5]],
+                    [10, 6, 2, 2, 2], 512, [16, 16, 4, 4, 4], 109, 256, 48000
+                ]
+            else:
+                config = [
+                    1025, 32, 192, 192, 768, 2, 6, 3, 0, "1",
+                    [3, 7, 11], [[1, 3, 5], [1, 3, 5], [1, 3, 5]],
+                    [12, 10, 2, 2], 512, [24, 20, 4, 4], 109, 256, 48000
+                ]
+        elif "32k" in filename:
+            sr = 32000
+            if version == "v1":
+                config = [
+                    513, 32, 192, 192, 768, 2, 6, 3, 0, "1",
+                    [3, 7, 11], [[1, 3, 5], [1, 3, 5], [1, 3, 5]],
+                    [10, 4, 2, 2, 2], 512, [16, 16, 4, 4, 4], 109, 256, 32000
+                ]
+            else:
+                config = [
+                    513, 32, 192, 192, 768, 2, 6, 3, 0, "1",
+                    [3, 7, 11], [[1, 3, 5], [1, 3, 5], [1, 3, 5]],
+                    [10, 8, 2, 2], 512, [20, 16, 4, 4], 109, 256, 32000
+                ]
+        else:  # Default to 40k
+            sr = 40000
+            config = [
+                1025, 32, 192, 192, 768, 2, 6, 3, 0, "1",
+                [3, 7, 11], [[1, 3, 5], [1, 3, 5], [1, 3, 5]],
+                [10, 10, 2, 2], 512, [16, 16, 4, 4], 109, 256, 40000
+            ]
+        logger.info(f"Using default config for pretrained model (sr={sr}, version={version})")
 
     # Select appropriate synthesizer class
     if version == "v1":
@@ -335,9 +373,13 @@ def load_synthesizer_with_lora(
         is_half=is_half,
     )
 
-    # Load weights
+    # Load weights (pretrained models use "model" key, trained models use "weight" key)
     if "weight" in checkpoint:
         base_synthesizer.load_state_dict(checkpoint["weight"], strict=False)
+    elif "model" in checkpoint:
+        base_synthesizer.load_state_dict(checkpoint["model"], strict=False)
+    else:
+        logger.warning("No weights found in checkpoint, using random initialization")
 
     # Create LoRA wrapper
     model = SynthesizerLoRA(

@@ -267,6 +267,89 @@ class F0Extractor:
         return f0_coarse, f0
 
 
+class SpecExtractor:
+    """Linear spectrogram extractor (for RVC training).
+
+    RVC uses linear spectrograms, not mel spectrograms.
+    Output dimension is n_fft // 2 + 1 (e.g., 1025 for n_fft=2048).
+
+    Args:
+        sample_rate: Audio sample rate
+        n_fft: FFT size (filter_length)
+        hop_size: Hop size
+        win_size: Window size
+    """
+
+    def __init__(
+        self,
+        sample_rate: int = 40000,
+        n_fft: int = 2048,
+        hop_size: int = 400,
+        win_size: int = 2048,
+    ):
+        self.sample_rate = sample_rate
+        self.n_fft = n_fft
+        self.hop_size = hop_size
+        self.win_size = win_size
+        self.spec_channels = n_fft // 2 + 1  # 1025 for n_fft=2048
+
+        # Cache for hann window
+        self._hann_window = None
+
+    def _get_hann_window(self, device: torch.device, dtype: torch.dtype) -> torch.Tensor:
+        """Get or create Hann window."""
+        if self._hann_window is None:
+            self._hann_window = torch.hann_window(self.win_size)
+        return self._hann_window.to(dtype=dtype, device=device)
+
+    @torch.no_grad()
+    def extract(
+        self,
+        audio: np.ndarray,
+        device: str = "cpu",
+    ) -> torch.Tensor:
+        """Extract linear spectrogram from audio.
+
+        Args:
+            audio: Audio waveform at target sample rate
+            device: Device to run on
+
+        Returns:
+            Linear spectrogram [n_fft//2+1, T] (e.g., [1025, T])
+        """
+        # Convert to tensor
+        y = torch.from_numpy(audio).float().unsqueeze(0)
+        y = y.to(device)
+
+        # Padding
+        y = F.pad(
+            y.unsqueeze(1),
+            (int((self.n_fft - self.hop_size) / 2), int((self.n_fft - self.hop_size) / 2)),
+            mode="reflect",
+        )
+        y = y.squeeze(1)
+
+        # STFT
+        hann_window = self._get_hann_window(y.device, y.dtype)
+        spec = torch.stft(
+            y,
+            self.n_fft,
+            hop_length=self.hop_size,
+            win_length=self.win_size,
+            window=hann_window,
+            center=False,
+            pad_mode="reflect",
+            normalized=False,
+            onesided=True,
+            return_complex=True,
+        )
+
+        # Magnitude (linear spectrogram)
+        spec = torch.sqrt(spec.real.pow(2) + spec.imag.pow(2) + 1e-6)
+
+        return spec.squeeze(0)
+
+
 class MelExtractor:
     """Mel spectrogram extractor.
 
@@ -419,6 +502,7 @@ class FeatureExtractor:
         self._hubert = None
         self._f0 = None
         self._mel = None
+        self._spec = None
 
     @property
     def hubert(self) -> HuBERTExtractor:
@@ -449,6 +533,13 @@ class FeatureExtractor:
         if self._mel is None:
             self._mel = MelExtractor(sample_rate=self.sample_rate)
         return self._mel
+
+    @property
+    def spec_extractor(self) -> SpecExtractor:
+        """Get linear spectrogram extractor (lazy load)."""
+        if self._spec is None:
+            self._spec = SpecExtractor(sample_rate=self.sample_rate)
+        return self._spec
 
     def extract_hubert(self, audio_16k: np.ndarray) -> np.ndarray:
         """Extract HuBERT features.
@@ -491,6 +582,20 @@ class FeatureExtractor:
         """
         return self.mel_extractor.extract(audio, device=self.device)
 
+    def extract_spec(
+        self,
+        audio: np.ndarray,
+    ) -> torch.Tensor:
+        """Extract linear spectrogram (for RVC training).
+
+        Args:
+            audio: Audio at target sample rate
+
+        Returns:
+            Linear spectrogram [n_fft//2+1, T] (e.g., [1025, T])
+        """
+        return self.spec_extractor.extract(audio, device=self.device)
+
     def extract_all(
         self,
         audio_gt: np.ndarray,
@@ -509,14 +614,14 @@ class FeatureExtractor:
             - phone: HuBERT features [T, D]
             - pitch: Coarse F0 [T]
             - pitchf: Continuous F0 [T]
-            - spec: Mel spectrogram [num_mels, T]
+            - spec: Linear spectrogram [n_fft//2+1, T] (e.g., [1025, T])
         """
         # Extract features
         phone = self.extract_hubert(audio_16k)
         pitch, pitchf = self.extract_f0(audio_16k, f0_threshold)
-        spec = self.extract_mel(audio_gt)
+        spec = self.extract_spec(audio_gt)  # Use linear spectrogram, not mel
 
-        # Align lengths (HuBERT hop=320 at 16kHz, mel hop=400 at 40kHz)
+        # Align lengths (HuBERT hop=320 at 16kHz, spec hop=400 at 40kHz)
         # HuBERT: T = len(audio_16k) / 320
         # Mel: T = len(audio_gt) / 400
         # For 40kHz audio, 16kHz version is 2.5x shorter

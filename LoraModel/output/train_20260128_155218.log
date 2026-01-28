@@ -1,0 +1,227 @@
+2026-01-28 15:52:18,782 - __main__ - INFO - Log file: ./output/train_20260128_155218.log
+2026-01-28 15:52:18,782 - __main__ - WARNING - CUDA not available, falling back to CPU
+2026-01-28 15:52:18,782 - __main__ - INFO - ============================================================
+2026-01-28 15:52:18,782 - __main__ - INFO - RVC-LoRA End-to-End Training
+2026-01-28 15:52:18,782 - __main__ - INFO - ============================================================
+2026-01-28 15:52:18,782 - __main__ - INFO - Input directory: ./download/base_voice
+2026-01-28 15:52:18,782 - __main__ - INFO - Output directory: ./output
+2026-01-28 15:52:18,782 - __main__ - INFO - Base model: ./download/pretrained_v2/f0G40k.pth
+2026-01-28 15:52:18,782 - __main__ - INFO - Sample rate: 40000
+2026-01-28 15:52:18,782 - __main__ - INFO - Version: v2
+2026-01-28 15:52:18,782 - __main__ - INFO - Device: cpu
+2026-01-28 15:52:18,782 - __main__ - INFO - LoRA rank: 8, alpha: 16
+2026-01-28 15:52:18,782 - __main__ - INFO - ============================================================
+2026-01-28 15:52:18,783 - __main__ - INFO - Skipping preprocessing, found 47 existing samples
+2026-01-28 15:52:18,783 - __main__ - INFO - 
+============================================================
+2026-01-28 15:52:18,783 - __main__ - INFO - Step 2: Loading model and injecting LoRA
+2026-01-28 15:52:18,783 - __main__ - INFO - ============================================================
+2026-01-28 15:52:18,858 - models.synthesizer_lora - INFO - Using default config for pretrained model (sr=40000, version=v2)
+2026-01-28 15:52:19,144 - models.synthesizer_lora - INFO - Injecting LoRA into Synthesizer...
+2026-01-28 15:52:19,201 - models.synthesizer_lora - INFO - LoRA injected into dec (Generator)
+2026-01-28 15:52:19,202 - models.synthesizer_lora - INFO - Frozen 36,417,922 parameters, 384,768 LoRA parameters trainable
+2026-01-28 15:52:19,207 - __main__ - INFO - Total parameters: 36,802,690
+2026-01-28 15:52:19,207 - __main__ - INFO - LoRA parameters: 384,768 (1.05%)
+2026-01-28 15:52:19,207 - __main__ - INFO - 
+============================================================
+2026-01-28 15:52:19,207 - __main__ - INFO - Step 3: Creating data loader
+2026-01-28 15:52:19,207 - __main__ - INFO - ============================================================
+2026-01-28 15:52:19,208 - training.data_loader - INFO - Auto-detected preprocessed dataset in ./output/preprocessed/training_data
+2026-01-28 15:52:19,208 - training.data_loader - INFO - PreprocessedDataset: Found 47 samples
+2026-01-28 15:52:19,208 - __main__ - INFO - Data loader created: 23 batches
+2026-01-28 15:52:19,208 - __main__ - INFO - 
+============================================================
+2026-01-28 15:52:19,208 - __main__ - INFO - Step 4: Training LoRA
+2026-01-28 15:52:19,208 - __main__ - INFO - ============================================================
+2026-01-28 15:52:19,680 - training.train_lora - INFO - Optimizer setup with 152 parameter groups
+2026-01-28 15:52:19,681 - training.train_lora - INFO - Starting training from epoch 0
+2026-01-28 15:52:19,681 - training.train_lora - INFO - Total epochs: 50
+2026-01-28 15:52:19,681 - training.train_lora - INFO - Batch size: 2
+2026-01-28 15:52:19,681 - training.train_lora - INFO - Learning rate: 0.0001
+2026-01-28 15:52:22,164 - training.train_lora - INFO - Epoch 0 [0/23] Step 0 LR: 0.000100 loss_total: 0.2548 loss_reconstruction: 0.2548 
+2026-01-28 15:52:34,905 - training.train_lora - INFO - Epoch 0 [10/23] Step 10 LR: 0.000100 loss_total: 0.0950 loss_reconstruction: 0.0950 
+2026-01-28 15:52:47,452 - training.train_lora - INFO - Epoch 0 [20/23] Step 20 LR: 0.000100 loss_total: 0.0828 loss_reconstruction: 0.0828 
+2026-01-28 15:53:09,899 - training.train_lora - INFO - Epoch 0 completed in 50.22s - Loss: 0.1228
+2026-01-28 15:53:21,456 - training.train_lora - INFO - Epoch 1 [7/23] Step 30 LR: 0.000100 loss_total: 0.1095 loss_reconstruction: 0.1095 
+2026-01-28 15:53:33,876 - training.train_lora - INFO - Epoch 1 [17/23] Step 40 LR: 0.000100 loss_total: 0.1934 loss_reconstruction: 0.1934 
+2026-01-28 15:54:00,065 - training.train_lora - INFO - Epoch 1 completed in 50.17s - Loss: 0.1083
+2026-01-28 15:54:07,873 - training.train_lora - INFO - Epoch 2 [4/23] Step 50 LR: 0.000100 loss_total: 0.1262 loss_reconstruction: 0.1262 
+2026-01-28 15:54:20,352 - training.train_lora - INFO - Epoch 2 [14/23] Step 60 LR: 0.000100 loss_total: 0.1225 loss_reconstruction: 0.1225 
+2026-01-28 15:54:50,317 - training.train_lora - INFO - Epoch 2 completed in 50.25s - Loss: 0.1033
+2026-01-28 15:54:54,205 - training.train_lora - INFO - Epoch 3 [1/23] Step 70 LR: 0.000100 loss_total: 0.1864 loss_reconstruction: 0.1864 
+2026-01-28 15:55:06,763 - training.train_lora - INFO - Epoch 3 [11/23] Step 80 LR: 0.000100 loss_total: 0.0601 loss_reconstruction: 0.0601 
+2026-01-28 15:55:19,280 - training.train_lora - INFO - Epoch 3 [21/23] Step 90 LR: 0.000100 loss_total: 0.0763 loss_reconstruction: 0.0763 
+2026-01-28 15:55:40,530 - training.train_lora - INFO - Epoch 3 completed in 50.21s - Loss: 0.1084
+2026-01-28 15:55:53,255 - training.train_lora - INFO - Epoch 4 [8/23] Step 100 LR: 0.000100 loss_total: 0.1858 loss_reconstruction: 0.1858 
+2026-01-28 15:56:05,811 - training.train_lora - INFO - Epoch 4 [18/23] Step 110 LR: 0.000100 loss_total: 0.0956 loss_reconstruction: 0.0956 
+2026-01-28 15:56:30,797 - training.train_lora - INFO - Epoch 4 completed in 50.27s - Loss: 0.1079
+2026-01-28 15:56:39,766 - training.train_lora - INFO - Epoch 5 [5/23] Step 120 LR: 0.000100 loss_total: 0.0816 loss_reconstruction: 0.0816 
+2026-01-28 15:56:52,382 - training.train_lora - INFO - Epoch 5 [15/23] Step 130 LR: 0.000100 loss_total: 0.0651 loss_reconstruction: 0.0651 
+2026-01-28 15:57:21,234 - training.train_lora - INFO - Epoch 5 completed in 50.44s - Loss: 0.1039
+2026-01-28 15:57:26,406 - training.train_lora - INFO - Epoch 6 [2/23] Step 140 LR: 0.000099 loss_total: 0.0694 loss_reconstruction: 0.0694 
+2026-01-28 15:57:39,042 - training.train_lora - INFO - Epoch 6 [12/23] Step 150 LR: 0.000099 loss_total: 0.0618 loss_reconstruction: 0.0618 
+2026-01-28 15:57:51,667 - training.train_lora - INFO - Epoch 6 [22/23] Step 160 LR: 0.000099 loss_total: 0.0891 loss_reconstruction: 0.0891 
+2026-01-28 15:58:11,678 - training.train_lora - INFO - Epoch 6 completed in 50.44s - Loss: 0.1104
+2026-01-28 15:58:25,750 - training.train_lora - INFO - Epoch 7 [9/23] Step 170 LR: 0.000099 loss_total: 0.0785 loss_reconstruction: 0.0785 
+2026-01-28 15:58:38,397 - training.train_lora - INFO - Epoch 7 [19/23] Step 180 LR: 0.000099 loss_total: 0.0976 loss_reconstruction: 0.0976 
+2026-01-28 15:59:02,134 - training.train_lora - INFO - Epoch 7 completed in 50.46s - Loss: 0.1079
+2026-01-28 15:59:12,378 - training.train_lora - INFO - Epoch 8 [6/23] Step 190 LR: 0.000099 loss_total: 0.1259 loss_reconstruction: 0.1259 
+2026-01-28 15:59:24,853 - training.train_lora - INFO - Epoch 8 [16/23] Step 200 LR: 0.000099 loss_total: 0.0976 loss_reconstruction: 0.0976 
+2026-01-28 15:59:52,376 - training.train_lora - INFO - Epoch 8 completed in 50.24s - Loss: 0.1140
+2026-01-28 15:59:58,939 - training.train_lora - INFO - Epoch 9 [3/23] Step 210 LR: 0.000099 loss_total: 0.0812 loss_reconstruction: 0.0812 
+2026-01-28 16:00:11,592 - training.train_lora - INFO - Epoch 9 [13/23] Step 220 LR: 0.000099 loss_total: 0.1043 loss_reconstruction: 0.1043 
+2026-01-28 16:00:42,799 - training.train_lora - INFO - Epoch 9 completed in 50.42s - Loss: 0.1115
+2026-01-28 16:00:42,825 - training.train_lora - INFO - Saved LoRA checkpoint: ./output/checkpoints/lora_epoch_9.pth
+2026-01-28 16:00:42,831 - training.train_lora - INFO - Saved best model: ./output/checkpoints/lora_best.pth
+2026-01-28 16:00:45,488 - training.train_lora - INFO - Epoch 10 [0/23] Step 230 LR: 0.000099 loss_total: 0.1446 loss_reconstruction: 0.1446 
+2026-01-28 16:00:58,320 - training.train_lora - INFO - Epoch 10 [10/23] Step 240 LR: 0.000099 loss_total: 0.1212 loss_reconstruction: 0.1212 
+2026-01-28 16:01:10,917 - training.train_lora - INFO - Epoch 10 [20/23] Step 250 LR: 0.000099 loss_total: 0.1997 loss_reconstruction: 0.1997 
+2026-01-28 16:01:33,404 - training.train_lora - INFO - Epoch 10 completed in 50.56s - Loss: 0.1175
+2026-01-28 16:01:44,964 - training.train_lora - INFO - Epoch 11 [7/23] Step 260 LR: 0.000099 loss_total: 0.1265 loss_reconstruction: 0.1265 
+2026-01-28 16:01:57,388 - training.train_lora - INFO - Epoch 11 [17/23] Step 270 LR: 0.000099 loss_total: 0.1528 loss_reconstruction: 0.1528 
+2026-01-28 16:02:23,644 - training.train_lora - INFO - Epoch 11 completed in 50.24s - Loss: 0.1126
+2026-01-28 16:02:31,531 - training.train_lora - INFO - Epoch 12 [4/23] Step 280 LR: 0.000099 loss_total: 0.1342 loss_reconstruction: 0.1342 
+2026-01-28 16:02:44,085 - training.train_lora - INFO - Epoch 12 [14/23] Step 290 LR: 0.000099 loss_total: 0.0728 loss_reconstruction: 0.0728 
+2026-01-28 16:03:14,124 - training.train_lora - INFO - Epoch 12 completed in 50.48s - Loss: 0.0976
+2026-01-28 16:03:18,114 - training.train_lora - INFO - Epoch 13 [1/23] Step 300 LR: 0.000099 loss_total: 0.1159 loss_reconstruction: 0.1159 
+2026-01-28 16:03:30,733 - training.train_lora - INFO - Epoch 13 [11/23] Step 310 LR: 0.000099 loss_total: 0.1172 loss_reconstruction: 0.1172 
+2026-01-28 16:03:43,252 - training.train_lora - INFO - Epoch 13 [21/23] Step 320 LR: 0.000099 loss_total: 0.1044 loss_reconstruction: 0.1044 
+2026-01-28 16:04:04,511 - training.train_lora - INFO - Epoch 13 completed in 50.39s - Loss: 0.1137
+2026-01-28 16:04:17,328 - training.train_lora - INFO - Epoch 14 [8/23] Step 330 LR: 0.000099 loss_total: 0.1614 loss_reconstruction: 0.1614 
+2026-01-28 16:04:29,918 - training.train_lora - INFO - Epoch 14 [18/23] Step 340 LR: 0.000099 loss_total: 0.1609 loss_reconstruction: 0.1609 
+2026-01-28 16:04:54,929 - training.train_lora - INFO - Epoch 14 completed in 50.42s - Loss: 0.1156
+2026-01-28 16:05:04,075 - training.train_lora - INFO - Epoch 15 [5/23] Step 350 LR: 0.000099 loss_total: 0.1896 loss_reconstruction: 0.1896 
+2026-01-28 16:05:16,633 - training.train_lora - INFO - Epoch 15 [15/23] Step 360 LR: 0.000099 loss_total: 0.0896 loss_reconstruction: 0.0896 
+2026-01-28 16:05:45,317 - training.train_lora - INFO - Epoch 15 completed in 50.39s - Loss: 0.1120
+2026-01-28 16:05:50,501 - training.train_lora - INFO - Epoch 16 [2/23] Step 370 LR: 0.000098 loss_total: 0.1451 loss_reconstruction: 0.1451 
+2026-01-28 16:06:03,008 - training.train_lora - INFO - Epoch 16 [12/23] Step 380 LR: 0.000098 loss_total: 0.1664 loss_reconstruction: 0.1664 
+2026-01-28 16:06:15,605 - training.train_lora - INFO - Epoch 16 [22/23] Step 390 LR: 0.000098 loss_total: 0.1198 loss_reconstruction: 0.1198 
+2026-01-28 16:06:35,612 - training.train_lora - INFO - Epoch 16 completed in 50.29s - Loss: 0.1067
+2026-01-28 16:06:49,838 - training.train_lora - INFO - Epoch 17 [9/23] Step 400 LR: 0.000098 loss_total: 0.1047 loss_reconstruction: 0.1047 
+2026-01-28 16:07:02,479 - training.train_lora - INFO - Epoch 17 [19/23] Step 410 LR: 0.000098 loss_total: 0.0935 loss_reconstruction: 0.0935 
+2026-01-28 16:07:26,299 - training.train_lora - INFO - Epoch 17 completed in 50.69s - Loss: 0.1145
+2026-01-28 16:07:36,749 - training.train_lora - INFO - Epoch 18 [6/23] Step 420 LR: 0.000098 loss_total: 0.1570 loss_reconstruction: 0.1570 
+2026-01-28 16:07:49,302 - training.train_lora - INFO - Epoch 18 [16/23] Step 430 LR: 0.000098 loss_total: 0.1140 loss_reconstruction: 0.1140 
+2026-01-28 16:08:16,971 - training.train_lora - INFO - Epoch 18 completed in 50.67s - Loss: 0.1168
+2026-01-28 16:08:23,496 - training.train_lora - INFO - Epoch 19 [3/23] Step 440 LR: 0.000098 loss_total: 0.0799 loss_reconstruction: 0.0799 
+2026-01-28 16:08:35,992 - training.train_lora - INFO - Epoch 19 [13/23] Step 450 LR: 0.000098 loss_total: 0.0810 loss_reconstruction: 0.0810 
+2026-01-28 16:09:07,337 - training.train_lora - INFO - Epoch 19 completed in 50.36s - Loss: 0.1102
+2026-01-28 16:09:07,356 - training.train_lora - INFO - Saved LoRA checkpoint: ./output/checkpoints/lora_epoch_19.pth
+2026-01-28 16:09:07,362 - training.train_lora - INFO - Saved best model: ./output/checkpoints/lora_best.pth
+2026-01-28 16:09:10,003 - training.train_lora - INFO - Epoch 20 [0/23] Step 460 LR: 0.000098 loss_total: 0.0874 loss_reconstruction: 0.0874 
+2026-01-28 16:09:22,773 - training.train_lora - INFO - Epoch 20 [10/23] Step 470 LR: 0.000098 loss_total: 0.1404 loss_reconstruction: 0.1404 
+2026-01-28 16:09:35,381 - training.train_lora - INFO - Epoch 20 [20/23] Step 480 LR: 0.000098 loss_total: 0.1087 loss_reconstruction: 0.1087 
+2026-01-28 16:09:57,930 - training.train_lora - INFO - Epoch 20 completed in 50.56s - Loss: 0.1043
+2026-01-28 16:10:09,594 - training.train_lora - INFO - Epoch 21 [7/23] Step 490 LR: 0.000098 loss_total: 0.0767 loss_reconstruction: 0.0767 
+2026-01-28 16:10:22,199 - training.train_lora - INFO - Epoch 21 [17/23] Step 500 LR: 0.000098 loss_total: 0.1107 loss_reconstruction: 0.1107 
+2026-01-28 16:10:48,444 - training.train_lora - INFO - Epoch 21 completed in 50.51s - Loss: 0.1139
+2026-01-28 16:10:56,295 - training.train_lora - INFO - Epoch 22 [4/23] Step 510 LR: 0.000098 loss_total: 0.0989 loss_reconstruction: 0.0989 
+2026-01-28 16:11:08,903 - training.train_lora - INFO - Epoch 22 [14/23] Step 520 LR: 0.000098 loss_total: 0.0778 loss_reconstruction: 0.0778 
+2026-01-28 16:11:38,889 - training.train_lora - INFO - Epoch 22 completed in 50.44s - Loss: 0.1083
+2026-01-28 16:11:42,911 - training.train_lora - INFO - Epoch 23 [1/23] Step 530 LR: 0.000098 loss_total: 0.0699 loss_reconstruction: 0.0699 
+2026-01-28 16:11:55,570 - training.train_lora - INFO - Epoch 23 [11/23] Step 540 LR: 0.000098 loss_total: 0.1649 loss_reconstruction: 0.1649 
+2026-01-28 16:12:08,170 - training.train_lora - INFO - Epoch 23 [21/23] Step 550 LR: 0.000098 loss_total: 0.1443 loss_reconstruction: 0.1443 
+2026-01-28 16:12:29,481 - training.train_lora - INFO - Epoch 23 completed in 50.59s - Loss: 0.1108
+2026-01-28 16:12:42,278 - training.train_lora - INFO - Epoch 24 [8/23] Step 560 LR: 0.000098 loss_total: 0.0972 loss_reconstruction: 0.0972 
+2026-01-28 16:12:54,793 - training.train_lora - INFO - Epoch 24 [18/23] Step 570 LR: 0.000098 loss_total: 0.0568 loss_reconstruction: 0.0568 
+2026-01-28 16:13:19,811 - training.train_lora - INFO - Epoch 24 completed in 50.33s - Loss: 0.1061
+2026-01-28 16:13:28,951 - training.train_lora - INFO - Epoch 25 [5/23] Step 580 LR: 0.000098 loss_total: 0.1268 loss_reconstruction: 0.1268 
+2026-01-28 16:13:41,568 - training.train_lora - INFO - Epoch 25 [15/23] Step 590 LR: 0.000098 loss_total: 0.0922 loss_reconstruction: 0.0922 
+2026-01-28 16:14:10,386 - training.train_lora - INFO - Epoch 25 completed in 50.58s - Loss: 0.1039
+2026-01-28 16:14:15,750 - training.train_lora - INFO - Epoch 26 [2/23] Step 600 LR: 0.000097 loss_total: 0.0523 loss_reconstruction: 0.0523 
+2026-01-28 16:14:28,365 - training.train_lora - INFO - Epoch 26 [12/23] Step 610 LR: 0.000097 loss_total: 0.1610 loss_reconstruction: 0.1610 
+2026-01-28 16:14:40,879 - training.train_lora - INFO - Epoch 26 [22/23] Step 620 LR: 0.000097 loss_total: 0.1400 loss_reconstruction: 0.1400 
+2026-01-28 16:15:00,885 - training.train_lora - INFO - Epoch 26 completed in 50.50s - Loss: 0.1051
+2026-01-28 16:15:15,181 - training.train_lora - INFO - Epoch 27 [9/23] Step 630 LR: 0.000097 loss_total: 0.1073 loss_reconstruction: 0.1073 
+2026-01-28 16:15:27,909 - training.train_lora - INFO - Epoch 27 [19/23] Step 640 LR: 0.000097 loss_total: 0.0708 loss_reconstruction: 0.0708 
+2026-01-28 16:15:51,669 - training.train_lora - INFO - Epoch 27 completed in 50.78s - Loss: 0.1064
+2026-01-28 16:16:02,040 - training.train_lora - INFO - Epoch 28 [6/23] Step 650 LR: 0.000097 loss_total: 0.1162 loss_reconstruction: 0.1162 
+2026-01-28 16:16:14,565 - training.train_lora - INFO - Epoch 28 [16/23] Step 660 LR: 0.000097 loss_total: 0.1582 loss_reconstruction: 0.1582 
+2026-01-28 16:16:42,108 - training.train_lora - INFO - Epoch 28 completed in 50.44s - Loss: 0.1159
+2026-01-28 16:16:48,707 - training.train_lora - INFO - Epoch 29 [3/23] Step 670 LR: 0.000097 loss_total: 0.0898 loss_reconstruction: 0.0898 
+2026-01-28 16:17:01,385 - training.train_lora - INFO - Epoch 29 [13/23] Step 680 LR: 0.000097 loss_total: 0.1540 loss_reconstruction: 0.1540 
+2026-01-28 16:17:32,795 - training.train_lora - INFO - Epoch 29 completed in 50.69s - Loss: 0.1074
+2026-01-28 16:17:32,822 - training.train_lora - INFO - Saved LoRA checkpoint: ./output/checkpoints/lora_epoch_29.pth
+2026-01-28 16:17:32,827 - training.train_lora - INFO - Saved best model: ./output/checkpoints/lora_best.pth
+2026-01-28 16:17:35,507 - training.train_lora - INFO - Epoch 30 [0/23] Step 690 LR: 0.000097 loss_total: 0.0783 loss_reconstruction: 0.0783 
+2026-01-28 16:17:48,323 - training.train_lora - INFO - Epoch 30 [10/23] Step 700 LR: 0.000097 loss_total: 0.1167 loss_reconstruction: 0.1167 
+2026-01-28 16:18:00,825 - training.train_lora - INFO - Epoch 30 [20/23] Step 710 LR: 0.000097 loss_total: 0.1437 loss_reconstruction: 0.1437 
+2026-01-28 16:18:23,369 - training.train_lora - INFO - Epoch 30 completed in 50.53s - Loss: 0.1068
+2026-01-28 16:18:35,027 - training.train_lora - INFO - Epoch 31 [7/23] Step 720 LR: 0.000097 loss_total: 0.0675 loss_reconstruction: 0.0675 
+2026-01-28 16:18:47,774 - training.train_lora - INFO - Epoch 31 [17/23] Step 730 LR: 0.000097 loss_total: 0.0620 loss_reconstruction: 0.0620 
+2026-01-28 16:19:14,069 - training.train_lora - INFO - Epoch 31 completed in 50.70s - Loss: 0.1119
+2026-01-28 16:19:22,003 - training.train_lora - INFO - Epoch 32 [4/23] Step 740 LR: 0.000097 loss_total: 0.1713 loss_reconstruction: 0.1713 
+2026-01-28 16:19:34,672 - training.train_lora - INFO - Epoch 32 [14/23] Step 750 LR: 0.000097 loss_total: 0.0557 loss_reconstruction: 0.0557 
+2026-01-28 16:20:04,855 - training.train_lora - INFO - Epoch 32 completed in 50.79s - Loss: 0.1073
+2026-01-28 16:20:09,029 - training.train_lora - INFO - Epoch 33 [1/23] Step 760 LR: 0.000097 loss_total: 0.0659 loss_reconstruction: 0.0659 
+2026-01-28 16:20:21,698 - training.train_lora - INFO - Epoch 33 [11/23] Step 770 LR: 0.000097 loss_total: 0.1053 loss_reconstruction: 0.1053 
+2026-01-28 16:20:34,317 - training.train_lora - INFO - Epoch 33 [21/23] Step 780 LR: 0.000097 loss_total: 0.1354 loss_reconstruction: 0.1354 
+2026-01-28 16:20:55,610 - training.train_lora - INFO - Epoch 33 completed in 50.75s - Loss: 0.1066
+2026-01-28 16:21:08,653 - training.train_lora - INFO - Epoch 34 [8/23] Step 790 LR: 0.000097 loss_total: 0.0640 loss_reconstruction: 0.0640 
+2026-01-28 16:21:21,309 - training.train_lora - INFO - Epoch 34 [18/23] Step 800 LR: 0.000097 loss_total: 0.1003 loss_reconstruction: 0.1003 
+2026-01-28 16:21:46,304 - training.train_lora - INFO - Epoch 34 completed in 50.69s - Loss: 0.1016
+2026-01-28 16:21:55,583 - training.train_lora - INFO - Epoch 35 [5/23] Step 810 LR: 0.000097 loss_total: 0.1234 loss_reconstruction: 0.1234 
+2026-01-28 16:22:08,361 - training.train_lora - INFO - Epoch 35 [15/23] Step 820 LR: 0.000097 loss_total: 0.1279 loss_reconstruction: 0.1279 
+2026-01-28 16:22:37,124 - training.train_lora - INFO - Epoch 35 completed in 50.82s - Loss: 0.1051
+2026-01-28 16:22:42,446 - training.train_lora - INFO - Epoch 36 [2/23] Step 830 LR: 0.000096 loss_total: 0.0649 loss_reconstruction: 0.0649 
+2026-01-28 16:22:55,184 - training.train_lora - INFO - Epoch 36 [12/23] Step 840 LR: 0.000096 loss_total: 0.1090 loss_reconstruction: 0.1090 
+2026-01-28 16:23:07,830 - training.train_lora - INFO - Epoch 36 [22/23] Step 850 LR: 0.000096 loss_total: 0.1772 loss_reconstruction: 0.1772 
+2026-01-28 16:23:27,840 - training.train_lora - INFO - Epoch 36 completed in 50.72s - Loss: 0.1072
+2026-01-28 16:23:42,308 - training.train_lora - INFO - Epoch 37 [9/23] Step 860 LR: 0.000096 loss_total: 0.0402 loss_reconstruction: 0.0402 
+2026-01-28 16:23:54,971 - training.train_lora - INFO - Epoch 37 [19/23] Step 870 LR: 0.000096 loss_total: 0.1205 loss_reconstruction: 0.1205 
+2026-01-28 16:24:18,715 - training.train_lora - INFO - Epoch 37 completed in 50.87s - Loss: 0.1101
+2026-01-28 16:24:30,674 - training.train_lora - INFO - Epoch 38 [6/23] Step 880 LR: 0.000096 loss_total: 0.1470 loss_reconstruction: 0.1470 
+2026-01-28 16:24:43,593 - training.train_lora - INFO - Epoch 38 [16/23] Step 890 LR: 0.000096 loss_total: 0.0923 loss_reconstruction: 0.0923 
+2026-01-28 16:25:11,645 - training.train_lora - INFO - Epoch 38 completed in 52.93s - Loss: 0.1094
+2026-01-28 16:25:18,419 - training.train_lora - INFO - Epoch 39 [3/23] Step 900 LR: 0.000096 loss_total: 0.1082 loss_reconstruction: 0.1082 
+2026-01-28 16:25:30,808 - training.train_lora - INFO - Epoch 39 [13/23] Step 910 LR: 0.000096 loss_total: 0.1297 loss_reconstruction: 0.1297 
+2026-01-28 16:26:02,291 - training.train_lora - INFO - Epoch 39 completed in 50.64s - Loss: 0.1228
+2026-01-28 16:26:02,325 - training.train_lora - INFO - Saved LoRA checkpoint: ./output/checkpoints/lora_epoch_39.pth
+2026-01-28 16:26:05,041 - training.train_lora - INFO - Epoch 40 [0/23] Step 920 LR: 0.000096 loss_total: 0.1454 loss_reconstruction: 0.1454 
+2026-01-28 16:26:18,972 - training.train_lora - INFO - Epoch 40 [10/23] Step 930 LR: 0.000096 loss_total: 0.1531 loss_reconstruction: 0.1531 
+2026-01-28 16:26:32,056 - training.train_lora - INFO - Epoch 40 [20/23] Step 940 LR: 0.000096 loss_total: 0.1347 loss_reconstruction: 0.1347 
+2026-01-28 16:26:54,826 - training.train_lora - INFO - Epoch 40 completed in 52.49s - Loss: 0.1141
+2026-01-28 16:27:06,834 - training.train_lora - INFO - Epoch 41 [7/23] Step 950 LR: 0.000096 loss_total: 0.1293 loss_reconstruction: 0.1293 
+2026-01-28 16:27:19,608 - training.train_lora - INFO - Epoch 41 [17/23] Step 960 LR: 0.000096 loss_total: 0.1510 loss_reconstruction: 0.1510 
+2026-01-28 16:27:45,952 - training.train_lora - INFO - Epoch 41 completed in 51.12s - Loss: 0.1127
+2026-01-28 16:27:54,109 - training.train_lora - INFO - Epoch 42 [4/23] Step 970 LR: 0.000096 loss_total: 0.2018 loss_reconstruction: 0.2018 
+2026-01-28 16:28:07,302 - training.train_lora - INFO - Epoch 42 [14/23] Step 980 LR: 0.000096 loss_total: 0.0578 loss_reconstruction: 0.0578 
+2026-01-28 16:28:37,752 - training.train_lora - INFO - Epoch 42 completed in 51.80s - Loss: 0.1113
+2026-01-28 16:28:41,908 - training.train_lora - INFO - Epoch 43 [1/23] Step 990 LR: 0.000096 loss_total: 0.1194 loss_reconstruction: 0.1194 
+2026-01-28 16:28:54,588 - training.train_lora - INFO - Epoch 43 [11/23] Step 1000 LR: 0.000096 loss_total: 0.0971 loss_reconstruction: 0.0971 
+2026-01-28 16:29:07,231 - training.train_lora - INFO - Epoch 43 [21/23] Step 1010 LR: 0.000096 loss_total: 0.0942 loss_reconstruction: 0.0942 
+2026-01-28 16:29:28,505 - training.train_lora - INFO - Epoch 43 completed in 50.75s - Loss: 0.1122
+2026-01-28 16:29:41,195 - training.train_lora - INFO - Epoch 44 [8/23] Step 1020 LR: 0.000096 loss_total: 0.1813 loss_reconstruction: 0.1813 
+2026-01-28 16:29:54,072 - training.train_lora - INFO - Epoch 44 [18/23] Step 1030 LR: 0.000096 loss_total: 0.1117 loss_reconstruction: 0.1117 
+2026-01-28 16:30:19,270 - training.train_lora - INFO - Epoch 44 completed in 50.76s - Loss: 0.1094
+2026-01-28 16:30:28,411 - training.train_lora - INFO - Epoch 45 [5/23] Step 1040 LR: 0.000096 loss_total: 0.1611 loss_reconstruction: 0.1611 
+2026-01-28 16:30:40,986 - training.train_lora - INFO - Epoch 45 [15/23] Step 1050 LR: 0.000096 loss_total: 0.0788 loss_reconstruction: 0.0788 
+2026-01-28 16:31:09,920 - training.train_lora - INFO - Epoch 45 completed in 50.65s - Loss: 0.1122
+2026-01-28 16:31:15,164 - training.train_lora - INFO - Epoch 46 [2/23] Step 1060 LR: 0.000096 loss_total: 0.0871 loss_reconstruction: 0.0871 
+2026-01-28 16:31:27,916 - training.train_lora - INFO - Epoch 46 [12/23] Step 1070 LR: 0.000096 loss_total: 0.0451 loss_reconstruction: 0.0451 
+2026-01-28 16:31:40,672 - training.train_lora - INFO - Epoch 46 [22/23] Step 1080 LR: 0.000096 loss_total: 0.2171 loss_reconstruction: 0.2171 
+2026-01-28 16:32:00,678 - training.train_lora - INFO - Epoch 46 completed in 50.76s - Loss: 0.1045
+2026-01-28 16:32:14,944 - training.train_lora - INFO - Epoch 47 [9/23] Step 1090 LR: 0.000095 loss_total: 0.0342 loss_reconstruction: 0.0342 
+2026-01-28 16:32:27,561 - training.train_lora - INFO - Epoch 47 [19/23] Step 1100 LR: 0.000095 loss_total: 0.0719 loss_reconstruction: 0.0719 
+2026-01-28 16:32:51,376 - training.train_lora - INFO - Epoch 47 completed in 50.70s - Loss: 0.1056
+2026-01-28 16:33:01,908 - training.train_lora - INFO - Epoch 48 [6/23] Step 1110 LR: 0.000095 loss_total: 0.1471 loss_reconstruction: 0.1471 
+2026-01-28 16:33:14,547 - training.train_lora - INFO - Epoch 48 [16/23] Step 1120 LR: 0.000095 loss_total: 0.0916 loss_reconstruction: 0.0916 
+2026-01-28 16:33:42,135 - training.train_lora - INFO - Epoch 48 completed in 50.76s - Loss: 0.1167
+2026-01-28 16:33:48,856 - training.train_lora - INFO - Epoch 49 [3/23] Step 1130 LR: 0.000095 loss_total: 0.0968 loss_reconstruction: 0.0968 
+2026-01-28 16:34:01,637 - training.train_lora - INFO - Epoch 49 [13/23] Step 1140 LR: 0.000095 loss_total: 0.0618 loss_reconstruction: 0.0618 
+2026-01-28 16:34:33,009 - training.train_lora - INFO - Epoch 49 completed in 50.87s - Loss: 0.1028
+2026-01-28 16:34:33,032 - training.train_lora - INFO - Saved LoRA checkpoint: ./output/checkpoints/lora_epoch_49.pth
+2026-01-28 16:34:33,038 - training.train_lora - INFO - Saved best model: ./output/checkpoints/lora_best.pth
+2026-01-28 16:34:33,064 - training.train_lora - INFO - Saved LoRA checkpoint: ./output/checkpoints/lora_epoch_49.pth
+2026-01-28 16:34:33,072 - training.train_lora - INFO - Training completed!
+2026-01-28 16:34:33,073 - __main__ - INFO - 
+============================================================
+2026-01-28 16:34:33,073 - __main__ - INFO - Step 5: Saving final LoRA weights
+2026-01-28 16:34:33,073 - __main__ - INFO - ============================================================
+2026-01-28 16:34:33,073 - __main__ - ERROR - Training failed: save_lora_checkpoint() got an unexpected keyword argument 'metadata'
+Traceback (most recent call last):
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/scripts/train_lora_e2e.py", line 459, in main
+    result = train_lora_e2e(
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/scripts/train_lora_e2e.py", line 327, in train_lora_e2e
+    save_lora_checkpoint(
+TypeError: save_lora_checkpoint() got an unexpected keyword argument 'metadata'

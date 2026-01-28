@@ -24,7 +24,13 @@
       "Bash(powershell -Command \"where.exe python\")",
       "Bash(powershell:*)",
       "Bash(C:\\\\Users\\\\a5935\\\\.conda\\\\envs\\\\rvc\\\\python.exe -c:*)",
-      "Bash(\"C:\\\\Users\\\\a5935\\\\.conda\\\\envs\\\\rvc\\\\python.exe\":*)"
+      "Bash(\"C:\\\\Users\\\\a5935\\\\.conda\\\\envs\\\\rvc\\\\python.exe\":*)",
+      "Bash(ls:*)",
+      "Bash(/usr/local/bin/python:*)",
+      "Bash(/opt/miniconda3/bin/conda create:*)",
+      "Bash(/opt/miniconda3/bin/conda tos accept:*)",
+      "Bash(/opt/miniconda3/envs/rvc/bin/pip install:*)",
+      "Bash(/opt/miniconda3/envs/rvc/bin/python:*)"
     ]
   }
 }

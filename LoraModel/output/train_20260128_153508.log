@@ -1,0 +1,63 @@
+2026-01-28 15:35:08,586 - __main__ - INFO - Log file: ./output/train_20260128_153508.log
+2026-01-28 15:35:08,586 - __main__ - WARNING - CUDA not available, falling back to CPU
+2026-01-28 15:35:08,586 - __main__ - INFO - ============================================================
+2026-01-28 15:35:08,586 - __main__ - INFO - RVC-LoRA End-to-End Training
+2026-01-28 15:35:08,586 - __main__ - INFO - ============================================================
+2026-01-28 15:35:08,586 - __main__ - INFO - Input directory: ./download/base_voice
+2026-01-28 15:35:08,586 - __main__ - INFO - Output directory: ./output
+2026-01-28 15:35:08,586 - __main__ - INFO - Base model: ./download/pretrained_v2/f0G40k.pth
+2026-01-28 15:35:08,586 - __main__ - INFO - Sample rate: 40000
+2026-01-28 15:35:08,586 - __main__ - INFO - Version: v2
+2026-01-28 15:35:08,586 - __main__ - INFO - Device: cpu
+2026-01-28 15:35:08,586 - __main__ - INFO - LoRA rank: 8, alpha: 16
+2026-01-28 15:35:08,586 - __main__ - INFO - ============================================================
+2026-01-28 15:35:08,587 - __main__ - INFO - Skipping preprocessing, found 47 existing samples
+2026-01-28 15:35:08,587 - __main__ - INFO - 
+============================================================
+2026-01-28 15:35:08,587 - __main__ - INFO - Step 2: Loading model and injecting LoRA
+2026-01-28 15:35:08,587 - __main__ - INFO - ============================================================
+2026-01-28 15:35:08,636 - models.synthesizer_lora - INFO - Using default config for pretrained model (sr=40000, version=v2)
+2026-01-28 15:35:08,920 - models.synthesizer_lora - INFO - Injecting LoRA into Synthesizer...
+2026-01-28 15:35:08,976 - models.synthesizer_lora - INFO - LoRA injected into dec (Generator)
+2026-01-28 15:35:08,976 - models.synthesizer_lora - INFO - Frozen 36,417,922 parameters, 384,768 LoRA parameters trainable
+2026-01-28 15:35:08,982 - __main__ - INFO - Total parameters: 36,802,690
+2026-01-28 15:35:08,982 - __main__ - INFO - LoRA parameters: 384,768 (1.05%)
+2026-01-28 15:35:08,982 - __main__ - INFO - 
+============================================================
+2026-01-28 15:35:08,982 - __main__ - INFO - Step 3: Creating data loader
+2026-01-28 15:35:08,982 - __main__ - INFO - ============================================================
+2026-01-28 15:35:08,982 - training.data_loader - INFO - Auto-detected preprocessed dataset in ./output/preprocessed/training_data
+2026-01-28 15:35:08,982 - training.data_loader - INFO - PreprocessedDataset: Found 47 samples
+2026-01-28 15:35:08,982 - __main__ - INFO - Data loader created: 23 batches
+2026-01-28 15:35:08,982 - __main__ - INFO - 
+============================================================
+2026-01-28 15:35:08,982 - __main__ - INFO - Step 4: Training LoRA
+2026-01-28 15:35:08,982 - __main__ - INFO - ============================================================
+2026-01-28 15:35:09,381 - training.train_lora - INFO - Optimizer setup with 152 parameter groups
+2026-01-28 15:35:09,382 - training.train_lora - INFO - Starting training from epoch 0
+2026-01-28 15:35:09,382 - training.train_lora - INFO - Total epochs: 50
+2026-01-28 15:35:09,382 - training.train_lora - INFO - Batch size: 2
+2026-01-28 15:35:09,382 - training.train_lora - INFO - Learning rate: 0.0001
+2026-01-28 15:35:15,386 - __main__ - ERROR - Training failed: The expanded size of the tensor (32) must match the existing size (0) at non-singleton dimension 1.  Target sizes: [192, 32].  Tensor sizes: [192, 0]
+Traceback (most recent call last):
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/scripts/train_lora_e2e.py", line 459, in main
+    result = train_lora_e2e(
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/scripts/train_lora_e2e.py", line 317, in train_lora_e2e
+    trainer.train(dataloader, resume_from=resume_from)
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/models/../training/train_lora.py", line 370, in train
+    epoch_losses = self.train_epoch(dataloader)
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/models/../training/train_lora.py", line 248, in train_epoch
+    loss_dict = self.train_step(batch)
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/models/../training/train_lora.py", line 158, in train_step
+    output = self._forward_pass(
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/models/../training/train_lora.py", line 195, in _forward_pass
+    return self.model.forward(
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/LoraModel/models/synthesizer_lora.py", line 165, in forward
+    return self.synthesizer.forward(
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/infer/lib/infer_pack/models.py", line 736, in forward
+    z_slice, ids_slice = commons.rand_slice_segments(
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/infer/lib/infer_pack/commons.py", line 70, in rand_slice_segments
+    ret = slice_segments(x, ids_str, segment_size)
+  File "/Users/mac-min1/Desktop/Venture_Project/Retrieval-based-Voice-Conversion-WebUI/infer/lib/infer_pack/commons.py", line 51, in slice_segments
+    ret[i] = x[i, :, idx_str:idx_end]
+RuntimeError: The expanded size of the tensor (32) must match the existing size (0) at non-singleton dimension 1.  Target sizes: [192, 32].  Tensor sizes: [192, 0]
