@@ -30,7 +30,16 @@
       "Bash(/opt/miniconda3/bin/conda create:*)",
       "Bash(/opt/miniconda3/bin/conda tos accept:*)",
       "Bash(/opt/miniconda3/envs/rvc/bin/pip install:*)",
-      "Bash(/opt/miniconda3/envs/rvc/bin/python:*)"
+      "Bash(/opt/miniconda3/envs/rvc/bin/python:*)",
+      "Bash(pip install:*)",
+      "Bash(findstr:*)",
+      "Bash(where:*)",
+      "Bash(D:ProgramDataminiconda3envsrvcpython.exe scripts/test_e2e.py:*)",
+      "Bash(/d/ProgramData/miniconda3/envs/rvc/python.exe:*)",
+      "Bash(conda info:*)",
+      "Bash(/d/Devtools/MiniConda/envs/rvc/python.exe:*)",
+      "Bash(D:/Devtools/MiniConda/envs/rvc/python.exe:*)",
+      "WebFetch(domain:klrvc.com)"
     ]
   }
 }

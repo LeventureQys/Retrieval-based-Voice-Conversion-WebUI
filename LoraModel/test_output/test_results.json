@@ -1,8 +1,0 @@
-{
-  "training": {
-    "success": false,
-    "error": "No features were extracted"
-  },
-  "inference": {},
-  "metrics": {}
-}

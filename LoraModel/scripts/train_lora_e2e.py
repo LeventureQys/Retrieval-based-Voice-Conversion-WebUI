@@ -329,7 +329,7 @@ def train_lora_e2e(
         path=final_lora_path,
         config=lora_config,
         epoch=epochs,
-        metadata={
+        additional_info={
             'base_model': os.path.basename(base_model),
             'sample_rate': sample_rate,
             'version': version,

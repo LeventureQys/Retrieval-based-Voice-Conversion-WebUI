@@ -1,71 +1,56 @@
 # RVC-LoRA 待办事项
 
-> 最后更新: 2026-01-28
+> 最后更新: 2026-01-29
+>
+> **项目状态: ⏸️ 暂停开发**
 
 ---
 
-## 🔴 紧急 - 需要立即修复
+## ⏸️ 项目暂停
 
-### PyTorch 2.6 兼容性问题
+### 暂停原因
 
-**问题**: PyTorch 2.6 将 `torch.load` 的 `weights_only` 默认值改为 `True`，导致 fairseq 加载 HuBERT 模型失败。
+经过深入实验和分析，决定暂停 RVC-LoRA 项目开发：
 
-**待修复文件**:
-- [ ] `inference/infer_lora.py` - `_load_hubert()` 方法
+| 问题 | 详情 |
+|------|------|
+| **RVC 模型太小** | 仅 ~90MB，全量训练本身就很快，LoRA 省时优势不明显 |
+| **训练已经很轻量** | RVC 原生训练显存需求仅 4-8GB，LoRA 省显存优势不明显 |
+| **Loss 收敛有限** | Mel Loss 从 0.50 下降到 0.42 后趋于平稳（下降 16%），继续训练改善有限 |
+| **社区无采用** | RVC 社区几乎没有使用 LoRA 的案例，说明实际需求不强 |
 
-**已修复文件**:
-- [x] `preprocessing/feature_extractor.py`
-- [x] `scripts/infer_lora_e2e.py`
+### 实验记录
 
-**修复方法**: 在调用 fairseq 加载模型前，临时 patch `torch.load`:
-```python
-original_load = torch.load
-def patched_load(*args, **kwargs):
-    kwargs['weights_only'] = False
-    return original_load(*args, **kwargs)
+**训练配置**:
+- 数据: 736 个音频片段（约 30 分钟语音，降噪后）
+- 底模: f0G40k.pth (v2)
+- 损失函数: Mel Spectrogram L1 Loss
+- 学习率调度: Warmup + Cosine Annealing
 
-torch.load = patched_load
-try:
-    # fairseq 加载代码
-finally:
-    torch.load = original_load
-```
+**rank=8 实验结果**:
+| Epoch | Loss | 变化 |
+|-------|------|------|
+| 0 | 0.5039 | - |
+| 5 | 0.4390 | -12.9% |
+| 10 | 0.4270 | -15.3% |
+| 14 | 0.4236 | -15.9% |
 
----
+**结论**: Loss 在 0.42 左右趋于平稳，继续训练或增大 rank 改善有限。
 
-## 🟡 高优先级 - 端到端测试
+### LoRA 适用场景分析
 
-修复兼容性问题后，需要完成以下测试：
+LoRA 更适合以下场景：
 
-- [ ] 使用 `base_voice` 数据训练 LoRA (10-20 epochs 快速验证)
-- [ ] 使用 `test_voice` 数据测试推理
-- [ ] 评估转换质量指标 (MCD, F0 Correlation, Spectral Convergence)
-- [ ] 验证 LoRA 权重文件大小
-- [ ] 记录训练时间
+| 适合 | 不适合 |
+|------|--------|
+| 大模型 (>1GB) | 小模型 (<100MB) ← RVC |
+| 显存受限 | 显存充足 |
+| 需要多个变体快速切换 | 只需 1-2 个模型 |
+| 训练数据极少 | 训练数据充足 |
 
-**测试命令**:
-```bash
-# 从 LoraModel 目录运行
-python scripts/test_e2e.py --epochs 10 --batch_size 2
-```
+### 建议
 
----
-
-## 🟢 中优先级 - 功能完善
-
-- [ ] 添加训练进度可视化 (TensorBoard 已支持)
-- [ ] 添加早停机制
-- [ ] 支持多 GPU 训练
-- [ ] 添加数据增强选项
-
----
-
-## 🔵 低优先级 - 文档和优化
-
-- [ ] 完善 API 文档
-- [ ] 添加更多使用示例
-- [ ] 优化内存使用
-- [ ] 性能基准测试
+**如果目标是训练 RVC 声音模型，直接使用 RVC 原生训练更简单高效。**
 
 ---
 

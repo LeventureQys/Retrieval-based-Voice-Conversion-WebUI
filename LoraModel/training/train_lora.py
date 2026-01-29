@@ -10,6 +10,7 @@ import argparse
 import logging
 import json
 import time
+import math
 from datetime import datetime
 from typing import Optional, Dict, Any
 
@@ -94,10 +95,22 @@ class LoRATrainer:
         logger.info(f"Optimizer setup with {len(lora_params)} parameter groups")
 
     def _setup_scheduler(self):
-        """Setup learning rate scheduler."""
-        self.scheduler = torch.optim.lr_scheduler.ExponentialLR(
+        """Setup learning rate scheduler with warmup and cosine annealing."""
+        # Warmup + Cosine Annealing scheduler
+        warmup_epochs = self.config.get('warmup_epochs', 5)
+
+        def lr_lambda(epoch):
+            if epoch < warmup_epochs:
+                # Linear warmup
+                return (epoch + 1) / warmup_epochs
+            else:
+                # Cosine annealing
+                progress = (epoch - warmup_epochs) / max(1, self.epochs - warmup_epochs)
+                return 0.5 * (1.0 + math.cos(math.pi * progress))
+
+        self.scheduler = torch.optim.lr_scheduler.LambdaLR(
             self.optimizer,
-            gamma=self.config.get('lr_decay', 0.999),
+            lr_lambda=lr_lambda,
         )
 
     def _setup_loss(self):
@@ -203,7 +216,19 @@ class LoRATrainer:
         target_spec: torch.Tensor,
         target_wav: torch.Tensor,
     ) -> tuple:
-        """Compute training loss."""
+        """Compute training loss using mel spectrogram loss."""
+        # Add RVC mel_processing to path
+        import sys
+        import os
+
+        current_file = os.path.abspath(__file__)
+        lora_model_dir = os.path.dirname(os.path.dirname(current_file))
+        rvc_root = os.path.dirname(lora_model_dir)
+        rvc_path = os.path.join(rvc_root, 'infer', 'lib', 'train')
+
+        if rvc_path not in sys.path:
+            sys.path.insert(0, rvc_path)
+
         # Extract generated audio from output
         if isinstance(output, tuple):
             generated_audio = output[0]
@@ -212,22 +237,39 @@ class LoRATrainer:
 
         # Fix dimension mismatch: model outputs [B, 1, T], target is [B, T]
         if generated_audio.dim() == 3 and generated_audio.shape[1] == 1:
-            generated_audio = generated_audio.squeeze(1)  # [B, 1, T] -> [B, T]
+            generated_audio = generated_audio.squeeze(1)
 
         # Align lengths
         min_len = min(generated_audio.shape[-1], target_wav.shape[-1])
         generated_audio = generated_audio[..., :min_len]
         target_wav = target_wav[..., :min_len]
 
-        # L1 loss on waveform
-        loss = torch.nn.functional.l1_loss(generated_audio, target_wav)
+        loss_dict = {}
 
-        loss_dict = {
-            'loss_total': loss.item(),
-            'loss_reconstruction': loss.item(),
-        }
+        try:
+            from mel_processing import mel_spectrogram_torch
 
-        return loss, loss_dict
+            # Mel Loss (RVC default config for 40kHz)
+            mel_target = mel_spectrogram_torch(
+                target_wav, 2048, 128, 40000, 400, 2048, 0, None
+            )
+            mel_generated = mel_spectrogram_torch(
+                generated_audio, 2048, 128, 40000, 400, 2048, 0, None
+            )
+            loss_mel = torch.nn.functional.l1_loss(mel_generated, mel_target)
+            loss_dict['loss_mel'] = loss_mel.item()
+            loss_dict['loss_total'] = loss_mel.item()
+            return loss_mel, loss_dict
+
+        except Exception as e:
+            # Fallback to waveform loss
+            logger.warning(f"Mel loss failed: {e}, using waveform loss")
+            loss_wav = torch.nn.functional.l1_loss(generated_audio, target_wav)
+            loss_dict['loss_wav'] = loss_wav.item()
+            loss_dict['loss_total'] = loss_wav.item()
+            return loss_wav, loss_dict
+
+        return total_loss, loss_dict
 
     def train_epoch(self, dataloader) -> Dict[str, float]:
         """Train for one epoch.

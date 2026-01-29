@@ -245,9 +245,22 @@ class LoRAInference:
             raise FileNotFoundError("HuBERT model not found")
 
         logger.info(f"Loading HuBERT from {hubert_path}")
-        models, saved_cfg, task = fairseq.checkpoint_utils.load_model_ensemble_and_task(
-            [hubert_path], suffix=""
-        )
+
+        # For PyTorch 2.6+, we need to allow unsafe loading for fairseq models
+        # This is safe as we trust the HuBERT model from official sources
+        original_load = torch.load
+        def patched_load(*args, **kwargs):
+            kwargs['weights_only'] = False
+            return original_load(*args, **kwargs)
+
+        torch.load = patched_load
+        try:
+            models, saved_cfg, task = fairseq.checkpoint_utils.load_model_ensemble_and_task(
+                [hubert_path], suffix=""
+            )
+        finally:
+            torch.load = original_load
+
         self._hubert_model = models[0].to(self.device)
         self._hubert_cfg = saved_cfg
 

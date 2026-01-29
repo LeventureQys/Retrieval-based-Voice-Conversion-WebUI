@@ -432,11 +432,29 @@ class PreprocessedDataset(Dataset):
         return files
 
     def _discover_files(self) -> List[str]:
-        """Discover all .pt files in data directory."""
+        """Discover all .pt files in data directory, filtering out short samples."""
         files = []
+        skipped = 0
+        min_frames = 32  # Minimum frames required for RVC
+
         for f in os.listdir(self.data_dir):
             if f.endswith('.pt'):
-                files.append(f.replace('.pt', ''))
+                # Check if sample is long enough
+                pt_path = os.path.join(self.data_dir, f)
+                try:
+                    data = torch.load(pt_path, weights_only=False)
+                    phone_len = data['phone'].shape[0]
+                    if phone_len >= min_frames:
+                        files.append(f.replace('.pt', ''))
+                    else:
+                        skipped += 1
+                except Exception as e:
+                    logger.warning(f"Failed to load {f}: {e}")
+                    skipped += 1
+
+        if skipped > 0:
+            logger.info(f"Skipped {skipped} samples with < {min_frames} frames")
+
         return sorted(files)
 
     def __getitem__(self, index: int) -> Dict[str, torch.Tensor]:

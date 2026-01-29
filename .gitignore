@@ -27,3 +27,17 @@ rmvpe.pt
 ffmpeg.*
 ffprobe.*
 /LoraModel/download/pretrained_v2
+/LoraModel/test_output_v3
+/LoraModel/test_output_v2
+/LoraModel/test_output_final
+/LoraModel/test_output_denoised
+/LoraModel/test_output
+/LoraModel/download/base_voice/processed_long/denoised_segments
+/LoraModel/download/base_voice/processed_long/raw_segments
+/download/base_voice/processed_long/raw_segments
+/download/base_voice/processed_long/denoised_segments
+/download/pretrained_v2
+/LoraModel/download/base_voice/long_voice
+download/base_voice/long_voice/2026-01-23 01-07-53.wav
+LoraModel/test_output_rank32/train_20260129_092847.log
+download/base_voice/long_voice/2026-01-23 01-07-53.pkf
