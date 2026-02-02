@@ -1,0 +1,10 @@
+^D:\WORKSHOP\RETRIEVAL-BASED-VOICE-CONVERSION-WEBUI\RVC_C\BUILD\CMAKEFILES\3FB7542975CD59C26133C66C394DB065\GENERATE.STAMP.RULE
+setlocal
+D:\Devtools\Cmake\bin\cmake.exe -SD:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C -BD:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/RVC_ONNX.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

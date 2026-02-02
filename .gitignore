@@ -42,3 +42,5 @@ download/base_voice/long_voice/2026-01-23 01-07-53.wav
 LoraModel/test_output_rank32/train_20260129_092847.log
 download/base_voice/long_voice/2026-01-23 01-07-53.pkf
 *.pdb
+*.onnx
+*.index

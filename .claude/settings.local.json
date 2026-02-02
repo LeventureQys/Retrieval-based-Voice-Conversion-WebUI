@@ -39,7 +39,17 @@
       "Bash(conda info:*)",
       "Bash(/d/Devtools/MiniConda/envs/rvc/python.exe:*)",
       "Bash(D:/Devtools/MiniConda/envs/rvc/python.exe:*)",
-      "WebFetch(domain:klrvc.com)"
+      "WebFetch(domain:klrvc.com)",
+      "Bash(tree:*)",
+      "Bash(cmake --build:*)",
+      "Bash(./test_stft.exe:*)",
+      "Bash(./test_f0.exe:*)",
+      "Bash(./test_pipeline.exe:*)",
+      "Bash(./test_onnx_runtime.exe:*)",
+      "Bash(cmake:*)",
+      "Bash(./test_synthesizer.exe:*)",
+      "Bash(./test_full_pipeline.exe:*)",
+      "Bash(./test_synth_compare.exe:*)"
     ]
   }
 }

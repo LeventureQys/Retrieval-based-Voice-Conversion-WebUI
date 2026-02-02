@@ -1,0 +1,10 @@
+^D:\WORKSHOP\RETRIEVAL-BASED-VOICE-CONVERSION-WEBUI\RVC_C\CMAKELISTS.TXT
+setlocal
+D:\Devtools\Cmake\bin\cmake.exe -SD:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C -BD:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build --check-stamp-file D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

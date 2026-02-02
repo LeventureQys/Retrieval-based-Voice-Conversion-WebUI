@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\tests\test_onnx_runtime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D42CEC9C-98D6-32D5-A61E-C98D91C73BED}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/rvc_core.dir
+D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/test_onnx_runtime.dir
+D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/test_stft.dir
+D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/test_f0.dir
+D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/test_pipeline.dir
+D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/test_synthesizer.dir
+D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/test_full_pipeline.dir
+D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/test_synth_compare.dir
+D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/ALL_BUILD.dir
+D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{75DAA92D-8023-3673-9BC9-0CCAF12528D0}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>rvc_core</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\lib\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">rvc_core.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">rvc_core</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\lib\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">rvc_core.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">rvc_core</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\lib\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">rvc_core.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">rvc_core</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\lib\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">rvc_core.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">rvc_core</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Devtools\Cmake\bin\cmake.exe -SD:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C -BD:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build --check-stamp-file D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeCInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Linker\MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeCCompiler.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeCXXCompiler.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeRCCompiler.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Devtools\Cmake\bin\cmake.exe -SD:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C -BD:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build --check-stamp-file D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeCInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Linker\MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeCCompiler.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeCXXCompiler.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeRCCompiler.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Devtools\Cmake\bin\cmake.exe -SD:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C -BD:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build --check-stamp-file D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeCInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Linker\MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeCCompiler.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeCXXCompiler.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeRCCompiler.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Devtools\Cmake\bin\cmake.exe -SD:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C -BD:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build --check-stamp-file D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeCInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Linker\MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\Windows.cmake;D:\Devtools\Cmake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeCCompiler.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeCXXCompiler.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeRCCompiler.cmake;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\4.2.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\rvc_onnx.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\onnx_inference.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\audio_processor.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\f0_extractor.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\stft.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\utils.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft\kiss_fft.c" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft\kiss_fftr.c" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\cheaptrick.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\codec.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\common.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\d4c.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\dio.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\fft.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\harvest.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\matlabfunctions.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\stonemask.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\synthesis.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\synthesisrealtime.cpp" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\src\resample.c" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\src\resamplesubs.c" />
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\src\filterkit.c" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\ZERO_CHECK.vcxproj">
+      <Project>{0C0B1105-F31E-3505-839B-C86BEC5AD295}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

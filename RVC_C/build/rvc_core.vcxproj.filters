@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\rvc_onnx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\onnx_inference.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\audio_processor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\f0_extractor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\stft.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft\kiss_fft.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft\kiss_fftr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\cheaptrick.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\codec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\d4c.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\dio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\fft.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\harvest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\matlabfunctions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\stonemask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\synthesis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\synthesisrealtime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\src\resample.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\src\resamplesubs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\src\filterkit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D42CEC9C-98D6-32D5-A61E-C98D91C73BED}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
