@@ -15,6 +15,7 @@
 #include "audio_processor.h"
 #include "f0_extractor.h"
 #include "utils.h"
+#include "mt19937.h"
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
@@ -264,10 +265,11 @@ int rvc_voice_convert(
     free(f0_resized);
     f0_resized = NULL;
 
-    // 生成随机噪声 (使用固定种子以便对比)
-    srand(42);
+    // 生成随机噪声 (使用 Mersenne Twister，与 numpy.random.randn 兼容)
+    MT19937State mt_state;
+    mt19937_seed(&mt_state, 42);
     for (size_t i = 0; i < 192 * synth_frames; i++) {
-        rnd[i] = ((float)rand() / RAND_MAX - 0.5f) * 0.2f;
+        rnd[i] = mt19937_randn_float(&mt_state);
     }
 
     // 打印一些调试信息

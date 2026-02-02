@@ -156,6 +156,10 @@ target_link_libraries(test_full_pipeline rvc_core ${ONNXRUNTIME_LIBRARIES})
 add_executable(test_synth_compare tests/test_synth_compare.cpp)
 target_link_libraries(test_synth_compare rvc_core ${ONNXRUNTIME_LIBRARIES})
 
+# HuBERT/ContentVec 对比测试
+add_executable(test_hubert_compare tests/test_hubert_compare.cpp)
+target_link_libraries(test_hubert_compare rvc_core ${ONNXRUNTIME_LIBRARIES})
+
 # =============================================================================
 # 安装配置
 # =============================================================================

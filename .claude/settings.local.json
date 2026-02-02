@@ -49,7 +49,10 @@
       "Bash(cmake:*)",
       "Bash(./test_synthesizer.exe:*)",
       "Bash(./test_full_pipeline.exe:*)",
-      "Bash(./test_synth_compare.exe:*)"
+      "Bash(./test_synth_compare.exe:*)",
+      "Bash(g++:*)",
+      "Bash(./test_mt19937.exe:*)",
+      "Bash(./test_hubert_compare.exe:*)"
     ]
   }
 }

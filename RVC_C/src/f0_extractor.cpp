@@ -115,7 +115,20 @@ int f0_extract(
         option.f0_ceil = extractor->params.f0_ceil;
         option.frame_period = frame_period;
 
-        Harvest(audio, (int)audio_size, fs, &option, result->time_axis, result->f0);
+        // Harvest 初步估计
+        double* raw_f0 = (double*)malloc(f0_length * sizeof(double));
+        if (!raw_f0) {
+            free(result->f0);
+            free(result->time_axis);
+            return -3;
+        }
+
+        Harvest(audio, (int)audio_size, fs, &option, result->time_axis, raw_f0);
+
+        // StoneMask 精细化 (与 Python 一致)
+        StoneMask(audio, (int)audio_size, fs, result->time_axis, raw_f0, f0_length, result->f0);
+
+        free(raw_f0);
 
     } else {
         // DIO 算法
@@ -264,40 +277,58 @@ void f0_interpolate(double* f0, size_t length) {
         return;
     }
 
-    // 找到第一个有效值
-    size_t first_valid = 0;
-    while (first_valid < length && f0[first_valid] <= 0) {
-        first_valid++;
-    }
+    // 完全按照 Python RVC 的 interpolate_f0 实现
+    // 关键点：Python 不会跳过已处理的帧，每个无声帧都会被独立处理
+    // 这意味着后面的处理可能会覆盖前面的结果
 
-    if (first_valid >= length) {
-        return; // 全部无效
-    }
+    // 创建原始数据的副本（Python 中的 data）
+    double* data = (double*)malloc(length * sizeof(double));
+    if (!data) return;
+    memcpy(data, f0, length * sizeof(double));
 
-    // 填充开头
-    for (size_t i = 0; i < first_valid; i++) {
-        f0[i] = f0[first_valid];
-    }
+    double last_value = 0.0;
 
-    // 线性插值中间的无效段
-    size_t prev_valid = first_valid;
-    for (size_t i = first_valid + 1; i < length; i++) {
-        if (f0[i] > 0) {
-            // 插值 prev_valid 到 i 之间的值
-            if (i - prev_valid > 1) {
-                double step = (f0[i] - f0[prev_valid]) / (i - prev_valid);
-                for (size_t j = prev_valid + 1; j < i; j++) {
-                    f0[j] = f0[prev_valid] + step * (j - prev_valid);
+    for (size_t i = 0; i < length; i++) {
+        if (data[i] <= 0.0) {
+            // 找到下一个有效值
+            size_t j = i + 1;
+            for (; j < length; j++) {
+                if (data[j] > 0.0) {
+                    break;
                 }
             }
-            prev_valid = i;
+
+            if (j < length - 1) {
+                // j 不是最后一个元素
+                if (last_value > 0.0) {
+                    // 有前一个有效值，线性插值
+                    // Python: step = (data[j] - data[i-1]) / (j - i)
+                    // Python: ip_data[k] = data[i-1] + step * (k - i + 1)
+                    // 注意：使用 data[i-1]，不是 last_value
+                    double prev_value = (i > 0) ? data[i - 1] : 0.0;
+                    double step = (data[j] - prev_value) / (double)(j - i);
+                    for (size_t k = i; k < j; k++) {
+                        f0[k] = prev_value + step * (double)(k - i + 1);
+                    }
+                } else {
+                    // 没有前一个有效值，用后面的值填充
+                    for (size_t k = i; k < j; k++) {
+                        f0[k] = data[j];
+                    }
+                }
+            } else {
+                // j 是最后一个元素或者没找到有效值，用 last_value 填充
+                for (size_t k = i; k < length; k++) {
+                    f0[k] = last_value;
+                }
+            }
+        } else {
+            f0[i] = data[i];
+            last_value = data[i];
         }
     }
 
-    // 填充结尾
-    for (size_t i = prev_valid + 1; i < length; i++) {
-        f0[i] = f0[prev_valid];
-    }
+    free(data);
 }
 
 void f0_shift_pitch(double* f0, size_t length, double semitones) {
@@ -320,34 +351,37 @@ void f0_resize(const double* f0, size_t src_length, size_t dst_length, double* o
         return;
     }
 
-    // 使用线性插值将 F0 调整到目标长度
-    // 参考 Python: np.interp(np.arange(0, len(source) * target_len, len(source)) / target_len,
-    //                        np.arange(0, len(source)), source)
+    // 完全按照 Python 的 resize_f0 实现:
+    // source[source < 0.001] = np.nan
+    // target = np.interp(np.arange(0, len(source) * target_len, len(source)) / target_len,
+    //                    np.arange(0, len(source)), source)
+    // res = np.nan_to_num(target)
+
+    // np.interp 的行为: 对于 NaN 值，结果也是 NaN
+    // 然后 nan_to_num 将 NaN 转为 0
 
     for (size_t i = 0; i < dst_length; i++) {
         // 计算源数组中的位置
-        double src_pos = (double)i * src_length / dst_length;
+        // Python: np.arange(0, len(source) * target_len, len(source)) / target_len
+        // 这等价于: i * src_length / dst_length
+        double src_pos = (double)i * (double)src_length / (double)dst_length;
         size_t idx = (size_t)src_pos;
         double frac = src_pos - idx;
 
         if (idx + 1 < src_length) {
-            // 线性插值，但跳过无效值 (<=0)
             double v0 = f0[idx];
             double v1 = f0[idx + 1];
 
-            if (v0 > 0 && v1 > 0) {
-                output[i] = v0 * (1.0 - frac) + v1 * frac;
-            } else if (v0 > 0) {
-                output[i] = v0;
-            } else if (v1 > 0) {
-                output[i] = v1;
+            // 如果任一值无效 (<=0)，结果为 0 (模拟 NaN -> 0)
+            if (v0 < 0.001 || v1 < 0.001) {
+                output[i] = 0.0;
             } else {
-                output[i] = 0;
+                output[i] = v0 * (1.0 - frac) + v1 * frac;
             }
         } else if (idx < src_length) {
-            output[i] = f0[idx];
+            output[i] = (f0[idx] < 0.001) ? 0.0 : f0[idx];
         } else {
-            output[i] = f0[src_length - 1];
+            output[i] = (f0[src_length - 1] < 0.001) ? 0.0 : f0[src_length - 1];
         }
     }
 }

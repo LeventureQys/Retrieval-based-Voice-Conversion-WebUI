@@ -186,6 +186,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{2098B694-4011-38D6-B5F8-AF0929B01637}</Project>
       <Name>test_full_pipeline</Name>
     </ProjectReference>
+    <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\test_hubert_compare.vcxproj">
+      <Project>{49B137B0-DE00-3C98-B0D3-5714BC624BE2}</Project>
+      <Name>test_hubert_compare</Name>
+    </ProjectReference>
     <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\test_onnx_runtime.vcxproj">
       <Project>{C06D6E26-EFE5-32D9-BD33-E44E5346E8B5}</Project>
       <Name>test_onnx_runtime</Name>
