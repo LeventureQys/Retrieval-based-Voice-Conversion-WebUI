@@ -7,5 +7,8 @@ D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/test_s
 D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/test_full_pipeline.dir
 D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/test_synth_compare.dir
 D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/test_hubert_compare.dir
+D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/test_streaming.dir
+D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/test_streaming_integration.dir
+D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/test_streaming_e2e.dir
 D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/ALL_BUILD.dir
 D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/CMakeFiles/ZERO_CHECK.dir

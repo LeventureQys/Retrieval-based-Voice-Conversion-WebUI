@@ -110,6 +110,7 @@ include_directories(
 # 核心库源文件
 set(RVC_CORE_SOURCES
     src/rvc_onnx.cpp
+    src/rvc_streaming.cpp
     src/onnx_inference.cpp
     src/audio_processor.cpp
     src/f0_extractor.cpp
@@ -159,6 +160,18 @@ target_link_libraries(test_synth_compare rvc_core ${ONNXRUNTIME_LIBRARIES})
 # HuBERT/ContentVec 对比测试
 add_executable(test_hubert_compare tests/test_hubert_compare.cpp)
 target_link_libraries(test_hubert_compare rvc_core ${ONNXRUNTIME_LIBRARIES})
+
+# 流式处理测试
+add_executable(test_streaming tests/test_streaming.cpp)
+target_link_libraries(test_streaming rvc_core ${ONNXRUNTIME_LIBRARIES})
+
+# 流式处理集成测试
+add_executable(test_streaming_integration tests/test_streaming_integration.cpp)
+target_link_libraries(test_streaming_integration rvc_core ${ONNXRUNTIME_LIBRARIES})
+
+# 流式处理端到端测试
+add_executable(test_streaming_e2e tests/test_streaming_e2e.cpp)
+target_link_libraries(test_streaming_e2e rvc_core ${ONNXRUNTIME_LIBRARIES})
 
 # =============================================================================
 # 安装配置

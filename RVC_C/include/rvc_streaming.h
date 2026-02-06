@@ -48,6 +48,12 @@ struct RVCContext;
 // 类型定义
 // =============================================================================
 
+/** SOLA 重叠窗口大小 (样本数 @ 48kHz, ~10ms) */
+#define RVC_SOLA_OVERLAP_SIZE 480
+
+/** SOLA 搜索范围 (样本数 @ 48kHz) */
+#define RVC_SOLA_SEARCH_RANGE 240
+
 /** 流式处理状态 */
 typedef struct RVCStreamState {
     // Pitch 缓存 (1024 帧)
@@ -63,6 +69,11 @@ typedef struct RVCStreamState {
     float* feature_context;         /**< 前一块的尾部特征 */
     size_t feature_context_frames;  /**< 特征上下文帧数 */
     size_t feature_context_capacity;/**< 特征上下文容量 (帧数) */
+
+    // SOLA 输出缓冲 (用于帧间平滑)
+    float* output_tail;             /**< 前一块输出的尾部 (用于 SOLA) */
+    size_t output_tail_size;        /**< 输出尾部大小 */
+    size_t output_tail_capacity;    /**< 输出尾部容量 */
 
     // 状态标志
     int is_first_chunk;             /**< 是否第一块 (1=是, 0=否) */
@@ -175,6 +186,43 @@ RVCStreamError rvc_stream_flush(
     size_t output_capacity,
     size_t* output_samples,
     const RVCStreamConfig* config
+);
+
+// 前向声明 ONNX 类型
+struct ONNXSession;
+struct F0Extractor;
+
+/**
+ * @brief 独立的流式处理函数 (不依赖 RVCContext)
+ *
+ * 直接使用 ONNX sessions 和 F0 提取器进行流式处理。
+ * 适用于需要更精细控制的场景。
+ *
+ * @param contentvec_session ContentVec/HuBERT ONNX 会话
+ * @param synth_session 合成器 ONNX 会话
+ * @param f0_extractor F0 提取器
+ * @param state 流式状态
+ * @param input_chunk 输入音频块 (16kHz)
+ * @param input_samples 输入样本数
+ * @param output_chunk 输出音频块 (48kHz)
+ * @param output_capacity 输出缓冲区容量
+ * @param output_samples 实际输出样本数 (输出参数)
+ * @param speaker_id 说话人 ID
+ * @param pitch_shift 音高偏移 (半音)
+ * @return 错误码
+ */
+RVCStreamError rvc_stream_process_standalone(
+    struct ONNXSession* contentvec_session,
+    struct ONNXSession* synth_session,
+    struct F0Extractor* f0_extractor,
+    RVCStreamState* state,
+    const float* input_chunk,
+    size_t input_samples,
+    float* output_chunk,
+    size_t output_capacity,
+    size_t* output_samples,
+    int speaker_id,
+    float pitch_shift
 );
 
 // =============================================================================

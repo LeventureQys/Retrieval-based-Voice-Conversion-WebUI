@@ -3,9 +3,6 @@
   <PropertyGroup>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
-  <PropertyGroup>
-    <ResolveNugetPackages>false</ResolveNugetPackages>
-  </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -25,31 +22,31 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0CECA980-C030-3CDC-8BC5-B2ADEF8D728A}</ProjectGuid>
+    <ProjectGuid>{26C0469C-442C-355E-AAB0-74F23BD46DE8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
-    <ProjectName>ALL_BUILD</ProjectName>
+    <ProjectName>test_streaming</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
-    <ConfigurationType>Utility</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
@@ -62,12 +59,63 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">test_streaming.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">test_streaming</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">test_streaming.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">test_streaming</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\bin\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">test_streaming.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">test_streaming</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\bin\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">test_streaming.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">test_streaming</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
     <Midl>
       <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -76,8 +124,57 @@
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <Link>
+      <AdditionalDependencies>lib\Debug\rvc_core.lib;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\lib\onnxruntime.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/lib/Debug/test_streaming.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/bin/Debug/test_streaming.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
     <Midl>
       <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -86,8 +183,57 @@
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <Link>
+      <AdditionalDependencies>lib\Release\rvc_core.lib;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\lib\onnxruntime.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/lib/Release/test_streaming.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/bin/Release/test_streaming.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
     <Midl>
       <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -96,8 +242,56 @@
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <Link>
+      <AdditionalDependencies>lib\MinSizeRel\rvc_core.lib;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\lib\onnxruntime.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/lib/MinSizeRel/test_streaming.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/bin/MinSizeRel/test_streaming.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
     <Midl>
       <AdditionalIncludeDirectories>D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\include;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\kissfft;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\World\src\world;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\libresample\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -106,6 +300,23 @@
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <Link>
+      <AdditionalDependencies>lib\RelWithDebInfo\rvc_core.lib;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\third_party\onnx_lib\onnxruntime-win-x64-1.23.2\onnxruntime-win-x64-1.23.2\lib\onnxruntime.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/lib/RelWithDebInfo/test_streaming.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>D:/WorkShop/Retrieval-based-Voice-Conversion-WebUI/RVC_C/build/bin/RelWithDebInfo/test_streaming.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\CMakeLists.txt">
@@ -165,6 +376,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\tests\test_streaming.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -177,50 +389,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\rvc_core.vcxproj">
       <Project>{75DAA92D-8023-3673-9BC9-0CCAF12528D0}</Project>
       <Name>rvc_core</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\test_f0.vcxproj">
-      <Project>{EFA7715B-9FD0-3788-BAFA-18639BFEF451}</Project>
-      <Name>test_f0</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\test_full_pipeline.vcxproj">
-      <Project>{2098B694-4011-38D6-B5F8-AF0929B01637}</Project>
-      <Name>test_full_pipeline</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\test_hubert_compare.vcxproj">
-      <Project>{49B137B0-DE00-3C98-B0D3-5714BC624BE2}</Project>
-      <Name>test_hubert_compare</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\test_onnx_runtime.vcxproj">
-      <Project>{C06D6E26-EFE5-32D9-BD33-E44E5346E8B5}</Project>
-      <Name>test_onnx_runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\test_pipeline.vcxproj">
-      <Project>{B5CE9B2B-DB6C-39D2-B6BF-B7CDB1DED93B}</Project>
-      <Name>test_pipeline</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\test_stft.vcxproj">
-      <Project>{D5C8DDE5-D54D-3B5B-9958-C63E6EBA7CAA}</Project>
-      <Name>test_stft</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\test_streaming.vcxproj">
-      <Project>{26C0469C-442C-355E-AAB0-74F23BD46DE8}</Project>
-      <Name>test_streaming</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\test_streaming_e2e.vcxproj">
-      <Project>{4CC9C0CF-AB40-38D4-BCF8-EDF1C814E9AA}</Project>
-      <Name>test_streaming_e2e</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\test_streaming_integration.vcxproj">
-      <Project>{9F15B492-DE89-3532-89A7-C50C1162F39B}</Project>
-      <Name>test_streaming_integration</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\test_synth_compare.vcxproj">
-      <Project>{9D11890C-5681-345B-A752-C10A0CD645BC}</Project>
-      <Name>test_synth_compare</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\test_synthesizer.vcxproj">
-      <Project>{AAE8D1BE-14F7-34D5-A2B0-EC942C6E4653}</Project>
-      <Name>test_synthesizer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

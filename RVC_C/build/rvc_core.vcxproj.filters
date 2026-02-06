@@ -4,6 +4,9 @@
     <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\rvc_onnx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\rvc_streaming.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\onnx_inference.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

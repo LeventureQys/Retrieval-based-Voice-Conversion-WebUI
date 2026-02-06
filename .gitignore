@@ -44,3 +44,7 @@ download/base_voice/long_voice/2026-01-23 01-07-53.pkf
 *.pdb
 *.onnx
 *.index
+*.wav
+*.pkf
+*.tlog
+*.tlog

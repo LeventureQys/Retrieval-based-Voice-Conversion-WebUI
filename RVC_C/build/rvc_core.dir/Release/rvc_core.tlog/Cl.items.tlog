@@ -1,4 +1,5 @@
 D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\rvc_onnx.cpp;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\rvc_core.dir\Release\rvc_onnx.obj
+D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\rvc_streaming.cpp;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\rvc_core.dir\Release\rvc_streaming.obj
 D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\onnx_inference.cpp;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\rvc_core.dir\Release\onnx_inference.obj
 D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\audio_processor.cpp;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\rvc_core.dir\Release\audio_processor.obj
 D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\src\f0_extractor.cpp;D:\WorkShop\Retrieval-based-Voice-Conversion-WebUI\RVC_C\build\rvc_core.dir\Release\f0_extractor.obj

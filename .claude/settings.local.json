@@ -1,7 +1,25 @@
 {
   "permissions": {
     "allow": [
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(cmake --build:*)",
+      "Bash(./test_streaming.exe:*)",
+      "Bash(cmake:*)",
+      "Bash(./test_streaming_integration.exe:*)",
+      "Bash(./test_streaming_e2e.exe:*)",
+      "Bash(python:*)",
+      "Bash(conda env list:*)",
+      "Bash(where:*)",
+      "Bash(D:/Devtools/MiniConda/python.exe:*)",
+      "Bash(source:*)",
+      "Bash(conda activate:*)",
+      "Bash(pip install:*)",
+      "Bash(unset:*)",
+      "Bash(pip config:*)",
+      "Bash(conda install:*)",
+      "Bash(cmd.exe /c \"cd /d D:\\\\WorkShop\\\\Retrieval-based-Voice-Conversion-WebUI\\\\RVC_C\\\\build && cmake --build . --config Release --target test_streaming_e2e\")",
+      "Bash(\"D:\\\\WorkShop\\\\Retrieval-based-Voice-Conversion-WebUI\\\\RVC_C\\\\build\\\\bin\\\\Release\\\\test_streaming_e2e.exe\")",
+      "Bash(\"D:\\\\WorkShop\\\\Retrieval-based-Voice-Conversion-WebUI\\\\RVC_C\\\\build\\\\bin\\\\Release\\\\test_streaming_e2e.exe\":*)"
     ]
   }
 }
