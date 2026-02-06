@@ -361,6 +361,87 @@ static void sola_crossfade(
 }
 
 // =============================================================================
+// F0 平滑处理
+// =============================================================================
+
+/**
+ * @brief 3点中值滤波 (用于 F0 平滑)
+ *
+ * 参考 Python 实现: f0 = signal.medfilt(f0, 3)
+ * 中值滤波可以有效去除 F0 中的脉冲噪声，使音高曲线更平滑
+ *
+ * @param f0 F0 数组 (原地修改)
+ * @param length 数组长度
+ */
+static void median_filter_f0(double* f0, size_t length) {
+    if (!f0 || length < 3) return;
+
+    // 分配临时缓冲区
+    double* temp = (double*)malloc(length * sizeof(double));
+    if (!temp) return;
+
+    // 复制原始数据
+    memcpy(temp, f0, length * sizeof(double));
+
+    // 应用 3 点中值滤波
+    for (size_t i = 1; i < length - 1; i++) {
+        double a = temp[i - 1];
+        double b = temp[i];
+        double c = temp[i + 1];
+
+        // 找出中值
+        double median;
+        if ((a <= b && b <= c) || (c <= b && b <= a)) {
+            median = b;
+        } else if ((b <= a && a <= c) || (c <= a && a <= b)) {
+            median = a;
+        } else {
+            median = c;
+        }
+        f0[i] = median;
+    }
+
+    free(temp);
+}
+
+/**
+ * @brief 对 pitchf (连续音高) 应用中值滤波平滑
+ *
+ * @param pitchf 连续音高数组 (原地修改)
+ * @param length 数组长度
+ */
+static void median_filter_pitchf(float* pitchf, size_t length) {
+    if (!pitchf || length < 3) return;
+
+    // 分配临时缓冲区
+    float* temp = (float*)malloc(length * sizeof(float));
+    if (!temp) return;
+
+    // 复制原始数据
+    memcpy(temp, pitchf, length * sizeof(float));
+
+    // 应用 3 点中值滤波
+    for (size_t i = 1; i < length - 1; i++) {
+        float a = temp[i - 1];
+        float b = temp[i];
+        float c = temp[i + 1];
+
+        // 找出中值
+        float median;
+        if ((a <= b && b <= c) || (c <= b && b <= a)) {
+            median = b;
+        } else if ((b <= a && a <= c) || (c <= a && a <= b)) {
+            median = a;
+        } else {
+            median = c;
+        }
+        pitchf[i] = median;
+    }
+
+    free(temp);
+}
+
+// =============================================================================
 // Pitch 缓存更新
 // =============================================================================
 
@@ -507,6 +588,9 @@ RVCStreamError rvc_stream_process_standalone(
         return RVC_STREAM_ERROR_F0_EXTRACT;
     }
 
+    // 应用 3 点中值滤波平滑 F0 (参考 Python: f0 = signal.medfilt(f0, 3))
+    median_filter_f0(f0_result.f0, f0_result.length);
+
     // =================================================================
     // 步骤 4: 计算帧数和 skip_head/return_length
     // =================================================================
@@ -555,6 +639,9 @@ RVCStreamError rvc_stream_process_standalone(
     rvc_f0_to_pitch_batch(f0_result.f0, f0_result.length,
                           temp_pitch, temp_pitchf,
                           F0_MIN_DEFAULT, F0_MAX_DEFAULT);
+
+    // 对 pitchf 也应用中值滤波平滑
+    median_filter_pitchf(temp_pitchf, f0_result.length);
 
     // 更新缓存
     update_pitch_cache(state, temp_pitch, temp_pitchf, f0_result.length, shift);

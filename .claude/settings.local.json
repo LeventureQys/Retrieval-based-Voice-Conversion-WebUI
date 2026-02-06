@@ -19,7 +19,8 @@
       "Bash(conda install:*)",
       "Bash(cmd.exe /c \"cd /d D:\\\\WorkShop\\\\Retrieval-based-Voice-Conversion-WebUI\\\\RVC_C\\\\build && cmake --build . --config Release --target test_streaming_e2e\")",
       "Bash(\"D:\\\\WorkShop\\\\Retrieval-based-Voice-Conversion-WebUI\\\\RVC_C\\\\build\\\\bin\\\\Release\\\\test_streaming_e2e.exe\")",
-      "Bash(\"D:\\\\WorkShop\\\\Retrieval-based-Voice-Conversion-WebUI\\\\RVC_C\\\\build\\\\bin\\\\Release\\\\test_streaming_e2e.exe\":*)"
+      "Bash(\"D:\\\\WorkShop\\\\Retrieval-based-Voice-Conversion-WebUI\\\\RVC_C\\\\build\\\\bin\\\\Release\\\\test_streaming_e2e.exe\":*)",
+      "Bash(\"D:\\\\WorkShop\\\\Retrieval-based-Voice-Conversion-WebUI\\\\RVC_C\\\\build\\\\bin\\\\Release\\\\test_streaming_e2e.exe\" -c \"D:\\\\WorkShop\\\\Retrieval-based-Voice-Conversion-WebUI\\\\RVC_C\\\\test\\\\models\\\\vec-768-layer-12.onnx\" -s \"D:\\\\WorkShop\\\\Retrieval-based-Voice-Conversion-WebUI\\\\RVC_C\\\\test\\\\models\\\\Rem_e440_s38720.onnx\" -i \"D:\\\\WorkShop\\\\Retrieval-based-Voice-Conversion-WebUI\\\\RVC_C\\\\test\\\\debug_audio_16k.wav\" -o \"D:\\\\WorkShop\\\\Retrieval-based-Voice-Conversion-WebUI\\\\RVC_C\\\\test\\\\streaming_output_smoothed_500ms.wav\" -b 500)"
     ]
   }
 }

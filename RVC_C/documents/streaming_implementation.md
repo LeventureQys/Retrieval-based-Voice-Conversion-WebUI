@@ -302,17 +302,17 @@ void rvc_interpolate_features_2x(
 - 测试音频: 19.63 秒
 - **SOLA 平滑已启用**: 帧间过渡更平滑
 
-#### 最新测试结果 (SOLA 启用)
+#### 最新测试结果 (SOLA + F0中值滤波)
 | 块大小 | RTF | 输出文件 |
 |--------|-----|----------|
-| 500ms | 0.70 | streaming_output_sola.wav |
-| 300ms | 0.82 | streaming_output_sola_300ms.wav |
+| 500ms | 0.72 | streaming_output_smoothed_500ms.wav |
+| 300ms | 0.85 | streaming_output_smoothed_300ms.wav |
 
 ### 性能指标
 | 块大小 | RTF | 实时性 |
 |--------|-----|--------|
-| 500ms | ~0.70 | ✅ 实时 |
-| 300ms | ~0.82 | ✅ 实时 |
+| 500ms | ~0.72 | ✅ 实时 |
+| 300ms | ~0.85 | ✅ 实时 |
 
 **注**: 使用 DIO 替代 Harvest 可进一步提升速度
 
@@ -380,4 +380,49 @@ typedef struct RVCStreamState {
     size_t output_tail_capacity;    /**< 输出尾部容量 */
 } RVCStreamState;
 ```
+
+## F0 (音高) 平滑处理
+
+### 概述
+
+参考 Python 实现 (`rtrvc.py` 第 264 行): `f0 = signal.medfilt(f0, 3)`
+
+使用 3 点中值滤波对 F0 曲线进行平滑，可以有效去除脉冲噪声，使音高过渡更自然。
+
+### 实现
+
+```c
+/**
+ * @brief 3点中值滤波 (用于 F0 平滑)
+ */
+static void median_filter_f0(double* f0, size_t length) {
+    if (!f0 || length < 3) return;
+
+    double* temp = (double*)malloc(length * sizeof(double));
+    memcpy(temp, f0, length * sizeof(double));
+
+    for (size_t i = 1; i < length - 1; i++) {
+        double a = temp[i - 1];
+        double b = temp[i];
+        double c = temp[i + 1];
+
+        // 找出中值
+        double median;
+        if ((a <= b && b <= c) || (c <= b && b <= a)) {
+            median = b;
+        } else if ((b <= a && a <= c) || (c <= a && a <= b)) {
+            median = a;
+        } else {
+            median = c;
+        }
+        f0[i] = median;
+    }
+    free(temp);
+}
+```
+
+### 应用位置
+
+1. F0 提取后，音高偏移前：对原始 F0 (Hz) 进行中值滤波
+2. Pitch 转换后：对连续音高值 (pitchf) 进行中值滤波
 
